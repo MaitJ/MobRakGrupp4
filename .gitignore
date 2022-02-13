@@ -16,6 +16,13 @@
 # Mono auto generated files
 mono_crash.*
 
+Grupp4/Grupp4/obj
+Grupp4/Grupp4/bin
+Grupp4/Grupp4.iOS/bin
+Grupp4/Grupp4.iOS/obj
+Grupp4/Grupp4.Android/bin
+Grupp4/Grupp4.Android/obj
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
