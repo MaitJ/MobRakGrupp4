@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupp4.HomePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
+                <Label 
+                    Text="Welcoming page" 
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontSize="36"/>
+            </Frame>
+            <Label Text="Welcoming screen text"
+                //>VerticalOptions="CenterAndExpand" 
+                //>HorizontalOptions="CenterAndExpand"
+                FontSize="28"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,7 +4,7 @@
              x:Class="Grupp4.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0" VerticalOptions="Start">
+        <Frame BackgroundColor="DarkSeaGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
             <Label Text="Simple Xamarin forms test" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Margin="20, 0" FontSize="Large" Text="Add your name to the list:"/>
