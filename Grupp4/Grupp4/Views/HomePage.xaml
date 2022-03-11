@@ -12,8 +12,8 @@
                     FontSize="36"/>
             </Frame>
             <Label Text="Welcoming screen text"
-                //>VerticalOptions="CenterAndExpand" 
-                //>HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
                 FontSize="28"/>
         </StackLayout>
     </ContentPage.Content>
