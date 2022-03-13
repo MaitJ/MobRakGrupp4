@@ -4,6 +4,16 @@
              x:Class="Grupp4.HomePage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="White"
+                                      Offset="0.1"/>
+                    <GradientStop Color="Gray"
+                                      Offset="1.0"/>
+
+                </LinearGradientBrush>
+
+            </StackLayout.Background>
             <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
                 <Label 
                     Text="Welcoming page" 
@@ -20,7 +30,7 @@
                 
             </StackLayout>
 
-            <Button Text="Click to log" FontSize="Large" Clicked="logButtonClicked" VerticalOptions="EndAndExpand"/>
+            <Button Text="Click to log" FontSize="Large" Clicked="logButtonClicked" VerticalOptions="EndAndExpand" BackgroundColor="ForestGreen" Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

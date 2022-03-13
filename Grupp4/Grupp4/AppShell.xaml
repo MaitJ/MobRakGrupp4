@@ -1,36 +1,107 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:fontAwesome="clr-namespace:FontAwesome"
        xmlns:local="clr-namespace:Grupp4"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
        BackgroundColor="ForestGreen">
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="White"
+                                      Offset="0.1"/>
+            <GradientStop Color="Gray"
+                                      Offset="1.0"/>
 
+        </LinearGradientBrush>
+
+    </Shell.FlyoutBackground>
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
     
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
 
-    <FlyoutItem Title="Welcome" Icon="home.png">
+    <FlyoutItem Title="Welcome">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
+    
     <FlyoutItem Title="Names">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
         <ShellContent Route="NamesPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
-
+    
+    <FlyoutItem Title="About">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    
+    
+    
     <Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
                 <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
-                       HeightRequest="45" />
+                       Margin="15"
+                       HeightRequest="16"
+                       />
                 <Label Grid.Column="1"
                        Text="{Binding Title}"
-                       FontAttributes="Italic"
-                       VerticalTextAlignment="Center" />
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Margin="15"
+                       
+                       Padding="0,0,0,0"
+                       TextColor="ForestGreen"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start"
+                       />
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="ForestGreen"
+                                      Offset="0.1"/>
+                        <GradientStop Color="LightGreen"
+                                      Offset="1.0"/>
+
+                    </LinearGradientBrush>
+
+                </Grid.Background>
+                <Label Text="Menu"
+                       FontSize="30"
+                       TextColor="White"
+                       
+                       Padding="5,5,5,5"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
 
 </Shell>

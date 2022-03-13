@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupp4.AboutPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="White"
+                                      Offset="0.1"/>
+                    <GradientStop Color="Gray"
+                                      Offset="1.0"/>
+
+                </LinearGradientBrush>
+
+            </StackLayout.Background>
+            <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
+                <Label Text="About us" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+
+            <Label Text="This application is created during the Mobile Application Programming course in Tallinn University." FontSize="Subtitle" Padding="5,10,5,10"/>
+
+            <Label Text="Our team includes:" FontSize="Subtitle" Padding="10,5,10,5"/>
+            <ListView  SeparatorColor="ForestGreen" SelectionMode="None">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Martin Kilgi</x:String>
+                        <x:String>Oliver Labi</x:String>
+                        <x:String>Mait Jurask</x:String>
+                        <x:String>Alex Nelke</x:String>
+                        <x:String>Ken Pikanõmme</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
+                
+            </ListView>
+
+
+
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

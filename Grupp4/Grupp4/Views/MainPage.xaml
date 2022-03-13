@@ -4,7 +4,18 @@
              x:Class="Grupp4.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="DarkSeaGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
+        <StackLayout.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="White"
+                                      Offset="0.1"/>
+                <GradientStop Color="Gray"
+                                      Offset="1.0"/>
+
+            </LinearGradientBrush>
+
+        </StackLayout.Background>
+
+        <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
             <Label Text="Simple Xamarin forms test" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Margin="20, 0" FontSize="Large" Text="Add your name to the list:"/>
@@ -19,7 +30,7 @@
             
         </StackLayout>
         
-        <Button Text="Add name" FontSize="Large" Clicked="OnSubmitButtonClicked" VerticalOptions="EndAndExpand"/>
+        <Button Text="Add name" FontSize="Large" Clicked="OnSubmitButtonClicked" VerticalOptions="EndAndExpand" BackgroundColor="ForestGreen" Margin="10"/>
 
     </StackLayout>
 
