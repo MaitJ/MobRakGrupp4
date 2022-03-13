@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Grupp4"
+       xmlns:views="clr-namespace:Grupp4.Views"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
        BackgroundColor="ForestGreen">
@@ -18,6 +19,28 @@
     <FlyoutItem Title="Names">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Third">
+        <ShellContent Route="ThirdPage" ContentTemplate="{DataTemplate views:ThirdPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="BindingTest">
+        <ShellContent Route="BindingTest" ContentTemplate="{DataTemplate views:BindingTest}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="150">
+
+                <Label Text="Test"
+                       FontSize="Header"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
+                </Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
 
     <Shell.ItemTemplate>
         <DataTemplate>
