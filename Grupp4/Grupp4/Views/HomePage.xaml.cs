@@ -16,5 +16,13 @@ namespace Grupp4
         {
             InitializeComponent();
         }
+
+        void logButtonClicked(object sender, EventArgs e)
+        {
+            logList.Children.Add(new Label
+            {
+                Text = "Logged time: " + DateTime.Now.ToString("T")
+            });
+        }
     }
 }

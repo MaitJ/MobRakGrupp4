@@ -15,6 +15,12 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 FontSize="28"/>
+
+            <StackLayout HorizontalOptions="Center" x:Name="logList">
+                
+            </StackLayout>
+
+            <Button Text="Click to log" FontSize="Large" Clicked="logButtonClicked" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

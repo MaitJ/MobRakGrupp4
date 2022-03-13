@@ -13,10 +13,10 @@
     -->
 
     <FlyoutItem Title="Welcome" Icon="home.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
     <FlyoutItem Title="Names">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Route="NamesPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
 
     <Shell.ItemTemplate>
