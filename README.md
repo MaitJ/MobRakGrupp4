@@ -17,3 +17,13 @@ Järgisime erinevaid õpetusvideod ning samuti ka Xamarini enda dokumentatsiooni
 Kuna selleks, et algne programm emulaatoris käima panna, on põhjalik juhend olemas ning tänu sellele ei tekkinud hetkel ka mingeid raskeid kohti.
 
 Emulaatori peal programmi käivitamisega probleeme ei olnud, küll aga oli ühel tiimiliikmel Android telefoni peal raskusi käima saamisega ning samuti võttis aega, et MacOS'i peal Iphone peale debuggeri tööle saaks.
+
+## 3. kodutöö
+
+### Kerged
+
+Enamus asjad on Xamarin Forms'i dokumentatsioonis kirjas ning väga palju ise välja mõtlema ei pea.
+
+### Rasked
+
+Otseselt väga keerulisi asju ei olnud. Tuli lihtsalt aru saada, kus ja mille järgi komponendid üksteisega ühilduvad (näiteks ühes failis "Button" ja teises failis List).
