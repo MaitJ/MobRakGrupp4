@@ -34,5 +34,7 @@
     <string>Grupp4</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>"Grupp4" wants to use your microphone to record audio.</string>
 </dict>
 </plist>

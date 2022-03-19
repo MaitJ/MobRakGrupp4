@@ -54,9 +54,20 @@
         </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    
-    
-    
+
+    <FlyoutItem Title="Microphone">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Microphone}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="MicrophonePage" ContentTemplate="{DataTemplate local:MicrophonePage}" />
+    </FlyoutItem>
+
+
+
     <Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
