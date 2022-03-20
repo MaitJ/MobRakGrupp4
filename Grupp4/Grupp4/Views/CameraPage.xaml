@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" Title="Camera"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupp4.CameraPage">
+    <ContentPage.Content>
+        <Grid>
+            <xct:CameraView
+                x:Name="xctCameraView"
+                CaptureMode="Photo"
+                MediaCaptured="MediaCaptured"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="imgViewPanel" Spacing="0">
+                <Frame Padding="3" BackgroundColor="White" HeightRequest="200" WidthRequest="200">
+                    <StackLayout Spacing="0">
+                        <Image Source="icon.png" Aspect="AspectFit" x:Name="imgView"/>
+                        <Button Text="Close" TextColor="White" BackgroundColor="ForestGreen" VerticalOptions="EndAndExpand" Clicked="CloseImageView"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand" Spacing="2" Padding="6">
+
+                <Button Text="Take Photo" FontSize="Large" TextColor="White" BackgroundColor="ForestGreen" Clicked="CaptureImage" x:Name="captureBtn"/>
+              
+            </StackLayout>
+        </Grid> 
+    </ContentPage.Content>
+</ContentPage>

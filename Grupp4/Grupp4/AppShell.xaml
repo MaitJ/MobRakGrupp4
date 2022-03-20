@@ -66,6 +66,17 @@
         <ShellContent Route="MicrophonePage" ContentTemplate="{DataTemplate local:MicrophonePage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Camera">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Camera}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="CameraPage" ContentTemplate="{DataTemplate local:CameraPage}" />
+    </FlyoutItem>
+
 
 
     <Shell.ItemTemplate>
