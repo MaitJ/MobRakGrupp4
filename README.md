@@ -27,3 +27,11 @@ Enamus asjad on Xamarin Forms'i dokumentatsioonis kirjas ning väga palju ise v�
 ### Rasked
 
 Otseselt väga keerulisi asju ei olnud. Tuli lihtsalt aru saada, kus ja mille järgi komponendid üksteisega ühilduvad (näiteks ühes failis "Button" ja teises failis List). Üks asi mida uurida tuleb veel on Xamarin Forms'i Shell.
+
+## 4. kodutöö
+
+### Kerged
+
+### Rasked
+
+Mikrofoni kasutamisel oli kõige keerulisem osa kasutaja käest loa küsimine mikrofoni kasutamiseks.
