@@ -13,10 +13,10 @@
                 VerticalOptions="FillAndExpand" />
 
             <StackLayout VerticalOptions="Center" HorizontalOptions="Center" x:Name="imgViewPanel" Spacing="0">
-                <Frame Padding="3" BackgroundColor="White" HeightRequest="200" WidthRequest="200">
+                <Frame Padding="6" BackgroundColor="Transparent" HeightRequest="220" WidthRequest="180">
                     <StackLayout Spacing="0">
-                        <Image Source="icon.png" Aspect="AspectFit" x:Name="imgView"/>
-                        <Button Text="Close" TextColor="White" BackgroundColor="ForestGreen" VerticalOptions="EndAndExpand" Clicked="CloseImageView"/>
+                        <Image Source="icon.png" Aspect="AspectFit"  x:Name="imgView" Rotation="90" />
+                        <Button Text="Close" TextColor="White" HorizontalOptions="Center" BackgroundColor="ForestGreen" VerticalOptions="EndAndExpand" Clicked="CloseImageView"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
