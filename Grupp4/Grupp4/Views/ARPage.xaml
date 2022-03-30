@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:XamAR.UI.Forms.Views;assembly=XamAR.UI.Forms"
+             x:Class="Grupp4.Views.ARPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <views:ARView VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

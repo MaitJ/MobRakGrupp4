@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Grupp4
+namespace Grupp4.Views
 {
     public partial class MainPage : ContentPage
     {

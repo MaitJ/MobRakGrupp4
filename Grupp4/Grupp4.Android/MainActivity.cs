@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using XamAR.Factory;
+using Grupp4.Droid.Factories;
 
 namespace Grupp4.Droid
 {
@@ -14,8 +16,12 @@ namespace Grupp4.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            XamAR.WorldForms.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            FactoryService.RegisterFactory<SphereFactory>("sphere");
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
