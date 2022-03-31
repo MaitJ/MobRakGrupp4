@@ -30,7 +30,7 @@ namespace Grupp4.Droid.Factories
             Console.WriteLine("Creating model release");
 
             ModelRenderable model;
-            var completion = MaterialFactory
+            MaterialFactory
                 .MakeOpaqueWithColor(Android.App.Application.Context,
                     new Google.AR.Sceneform.Rendering.Color(0, 1, 0))
                 .ThenAccept(
@@ -40,8 +40,6 @@ namespace Grupp4.Droid.Factories
                         nodeSphere.Renderable = model;
                     })
                 );
-            var future = completion.ToCompletableFuture();
-            future.Get();
             return nodeSphere.AsARModel();
 
         }
