@@ -208,7 +208,7 @@ namespace Grupp4.Droid
             try
             {
                 mVirtualObject.CreateOnGlThread(/*context=*/this, "andy.obj", "andy.png");
-                mVirtualObject.setMaterialProperties(0.0f, 3.5f, 1.0f, 6.0f);
+                mVirtualObject.setMaterialProperties(1.0f, 1.5f, 1.0f, 1.0f);
 
                 mVirtualObjectShadow.CreateOnGlThread(/*context=*/this,
                         "andy_shadow.obj", "andy_shadow.png");
