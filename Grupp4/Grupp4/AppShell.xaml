@@ -55,6 +55,28 @@
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Local Settings">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Anchor}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="Local" ContentTemplate="{DataTemplate local:LocalSettingsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="New Camera">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Album}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="Local" ContentTemplate="{DataTemplate local:NewCameraPage}" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Microphone">
         <FlyoutItem.Icon>
             <FontImageSource

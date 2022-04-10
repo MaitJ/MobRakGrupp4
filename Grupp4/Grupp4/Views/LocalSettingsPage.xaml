@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupp4.LocalSettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="White"
+                                      Offset="0.1"/>
+                    <GradientStop Color="Gray"
+                                      Offset="1.0"/>
+
+                </LinearGradientBrush>
+
+            </StackLayout.Background>
+            <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
+                <Label 
+                    Text="Local Settings" 
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    FontSize="36"/>
+            </Frame>
+            <Entry x:Name="Label1" Margin="20" />
+            <CheckBox Color="DarkOliveGreen" x:Name="Checkbox1" Margin="20" />
+            <Switch OnColor="DarkOliveGreen" ThumbColor="DarkSeaGreen" x:Name="Switch1" Margin="20" />
+            <Button Text="Save Settings" Clicked="ButtonClicked" />
+            <Button Text="Clear Settings" Clicked="ButtonClicked2" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
