@@ -110,6 +110,17 @@
         <ShellContent Route="WeatherPage" ContentTemplate="{DataTemplate local:WeatherPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Weatherapp">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
+    </FlyoutItem>
+
 
 
     <Shell.ItemTemplate>

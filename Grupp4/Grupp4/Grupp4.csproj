@@ -11,6 +11,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Constants\**" />
+    <EmbeddedResource Remove="Constants\**" />
+    <None Remove="Constants\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\weather.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\weather.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Recources\Fonts\fa-brands-400.ttf" />
     <None Remove="Recources\Fonts\fa-regular-400.ttf" />
     <None Remove="Recources\Fonts\fa-solid-900.ttf" />
@@ -57,6 +71,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NewCameraPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WeatherappPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WeatherPage.xaml">
