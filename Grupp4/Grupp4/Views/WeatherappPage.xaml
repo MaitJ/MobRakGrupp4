@@ -4,27 +4,7 @@
              
              x:Class="Grupp4.WeatherappPage">
     
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="labelStyle" 
-                   TargetType="Label">
-                <Setter Property="FontSize" 
-                        Value="Small" />
-                <Setter Property="TextColor" 
-                        Value="Gray" />
-            </Style>
-
-            <Style x:Key="labelResultStyle" 
-                   TargetType="Label">
-                <Setter Property="FontSize" 
-                        Value="Medium" />
-                <Setter Property="Margin" 
-                        Value="10,0,0,0" />
-            </Style>
-
-            
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    
 
     <StackLayout>
         <StackLayout.Background>
@@ -78,19 +58,11 @@
         </Grid>
         <StackLayout BackgroundColor="ForestGreen" Margin="0, -10, 0,0" Padding="10" Spacing="2"  >
             <Button Text="Find Weather data" 
-                    
                     BackgroundColor="#2596be"
                     TextColor="White"
                     Clicked="OnGetWeatherButtonClicked" />
         </StackLayout>
 
-        <!--
-        <StackLayout HorizontalOptions="CenterAndExpand">
-            <Label Text="Location"  TextColor="#2596be"/>
-            <Label Text="{Binding Title}" FontSize="Large" TextColor="#2596be" />
-        </StackLayout> -->
-        
-        
         
         <Grid Padding="5">
             <Grid.RowDefinitions>
@@ -99,20 +71,39 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"  />
                 <ColumnDefinition Width="*" />
-                
-
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Text="Location:" Grid.Row="1" FontSize="Large" TextColor="#2596be" HorizontalTextAlignment="End" />
-            <Label Text="{Binding Title}" Grid.Row="1" Grid.Column="1"  FontSize="Large" TextColor="#2596be"  />
+            <Label Text="Location:" 
+                   Grid.Row="1" 
+                   FontSize="Large" 
+                   TextColor="#2596be" 
+                   HorizontalTextAlignment="End" />
+            
+            <Label Text="{Binding Title}" 
+                   Grid.Row="1" Grid.Column="1"  
+                   FontSize="Large" 
+                   TextColor="#2596be"  />
         </Grid>
 
 
         <StackLayout>
-            <Label Text="Temperature:"  FontSize="Medium" TextColor="#2596be" HorizontalTextAlignment="Center" Margin="0,10,0,-15"  />
-            <Label Text="{Binding Main.Temperature}" FontSize="Header" HorizontalOptions="Center" TextColor="#2596be" Padding="0,0,0,0" Margin="0,0,0,0"/>
-            <Label Text="Celcius" HorizontalTextAlignment="Center"  TextColor="#2596be" Margin="0, -20,0,0"/>
+            <Label Text="Temperature:"  
+                   FontSize="Medium" 
+                   TextColor="#2596be" 
+                   HorizontalTextAlignment="Center" 
+                   Margin="0,10,0,-15"  />
+            <Label Text="{Binding Main.Temperature}"
+                   FontSize="Header" 
+                   HorizontalOptions="Center" 
+                   TextColor="#2596be" Padding="0,0,0,0" 
+                   Margin="0,0,0,0"/>
+            
+            <Label Text="Celcius" 
+                   HorizontalTextAlignment="Center"  
+                   TextColor="#2596be" 
+                   Margin="0, -20,0,0"/>
+            
         </StackLayout>
         <Grid Padding="5">
             <Grid.RowDefinitions>
@@ -124,22 +115,43 @@
                 <ColumnDefinition Width="*"  />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-
-
             </Grid.ColumnDefinitions>
-            <Label Text="Wind Speed" Grid.Row="1" HorizontalTextAlignment="Center" TextColor="#2596be" />
-            <Label Text="{Binding Wind.Speed}" Grid.Row="2" HorizontalTextAlignment="Center" TextColor="#2596be" FontSize="Large"/>
 
-            <Label Text="Humidity" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" TextColor="#2596be" />
-            <Label Text="{Binding Main.Humidity}" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center"  TextColor="#2596be" FontSize="Large"/>
+            <Label Text="Wind Speed" 
+                   Grid.Row="1" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="#2596be" />
 
-            <Label Text="Visibility" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center" TextColor="#2596be" />
-            <Label Text="{Binding Weather[0].Visibility}" Grid.Row="2" Grid.Column="2" HorizontalTextAlignment="Center" TextColor="#2596be" FontSize="Large"/>
+            <Label Text="{Binding Wind.Speed}" 
+                   Grid.Row="2" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="#2596be" 
+                   FontSize="Large"/>
+
+            <Label Text="Humidity" 
+                   Grid.Row="1" Grid.Column="1" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="#2596be" />
+
+            <Label Text="{Binding Main.Humidity}" 
+                   Grid.Row="2" Grid.Column="1" 
+                   HorizontalTextAlignment="Center"  
+                   TextColor="#2596be" 
+                   FontSize="Large"/>
+
+            <Label Text="Visibility" 
+                   Grid.Row="1" 
+                   Grid.Column="2" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="#2596be" />
+
+            <Label Text="{Binding Weather[0].Visibility}" 
+                   Grid.Row="2" 
+                   Grid.Column="2" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="#2596be" 
+                   FontSize="Large"/>
         </Grid>
-
-
-
-       
 
     </StackLayout>
 </ContentPage>
