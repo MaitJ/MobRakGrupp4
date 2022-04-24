@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Grupp4
@@ -43,6 +44,18 @@ namespace Grupp4
             }
 
             return repositories;
+        }
+        public async Task<WeatherData> GetWeatherDataByLoc(Location loc)
+        {
+            string requestUri = Constants.WeatherEndpoint;
+            requestUri += $"?lat={loc.Latitude}&lon={loc.Longitude}";
+            requestUri += "&units=metric";
+            requestUri += $"&APPID={Constants.WeatherAPIKey}";
+
+            WeatherData data = await GetWeatherData(requestUri);
+
+            return data;
+
         }
         public async Task<WeatherData> GetWeatherData(string query)
         {

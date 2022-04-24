@@ -21,6 +21,16 @@
     
         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
     -->
+    <FlyoutItem Title="Weatherapp">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Welcome">
         <FlyoutItem.Icon>
@@ -31,17 +41,6 @@
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Names">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="NamesPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
     
     <FlyoutItem Title="About">
@@ -55,71 +54,6 @@
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Local Settings">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Anchor}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="Local" ContentTemplate="{DataTemplate local:LocalSettingsPage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="New Camera">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Album}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="Local" ContentTemplate="{DataTemplate local:NewCameraPage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Microphone">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Microphone}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="MicrophonePage" ContentTemplate="{DataTemplate local:MicrophonePage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Camera">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Camera}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="CameraPage" ContentTemplate="{DataTemplate local:CameraPage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Weather">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Angel}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="WeatherPage" ContentTemplate="{DataTemplate local:WeatherPage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Weatherapp">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
-    </FlyoutItem>
 
 
 
