@@ -3,107 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Weather"
              
              x:Class="Grupp4.WeatherappPage">
-    
-    
-
     <StackLayout>
         <StackLayout.Background>
             <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="White"
+                <GradientStop Color="LightBlue"
                                       Offset="0.1"/>
-                <GradientStop Color="Gray"
+                <GradientStop Color="DeepSkyBlue"
                                       Offset="1.0"/>
 
             </LinearGradientBrush>
 
         </StackLayout.Background>
-        <Grid BackgroundColor="ForestGreen" 
-              Padding="10,5,5,5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            
-            <Label Text="Insert City" 
-                   Grid.ColumnSpan="3"
-                   HorizontalOptions="Center"
-                   TextColor="White" 
-                   FontAttributes="Bold" 
-                   FontSize="Medium" />
-
-            <Label Text="City:" 
-                   Grid.Row="1" 
-                   VerticalOptions="Center"
-                   HorizontalOptions="Fill"
-                   FontSize="Medium"
-                   TextColor="white" />
-
-            <Entry x:Name="_cityEntry"
-                   Grid.Row="1" 
-                   Grid.Column="1"
-                   Margin="0,0"
-                   VerticalOptions="Center"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="White"
-                   TextColor="DarkGray"
-                   Text="Tallinn" />
-
-            
-        </Grid>
-        <StackLayout BackgroundColor="ForestGreen" Margin="0, -10, 0,0" Padding="10" Spacing="2"  >
-            <Button Text="Find Weather data" 
-                    BackgroundColor="#2596be"
-                    TextColor="White"
-                    Clicked="OnGetWeatherButtonClicked" />
-        </StackLayout>
-
         
-        <Grid Padding="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Location:" 
+        <StackLayout Margin="50">
+            <Label Text="Location" 
                    Grid.Row="1" 
-                   FontSize="Large" 
-                   TextColor="#2596be" 
-                   HorizontalTextAlignment="End" />
-            
-            <Label Text="{Binding Title}" 
-                   Grid.Row="1" Grid.Column="1"  
-                   FontSize="Large" 
-                   TextColor="#2596be"  />
-        </Grid>
+                   FontSize="Title" 
+                   TextColor="Black" 
+                   HorizontalTextAlignment="Center" />
+            <Label Text="{Binding Title}"
+                   FontSize="Header" 
+                   HorizontalOptions="Center" 
+                   TextColor="#2596be" Padding="0,0,0,0" 
+                   Margin="0,0,0,0"/>
+        </StackLayout>
 
 
         <StackLayout>
             <Label Text="Temperature:"  
                    FontSize="Medium" 
-                   TextColor="#2596be" 
+                   TextColor="Black" 
                    HorizontalTextAlignment="Center" 
-                   Margin="0,10,0,-15"  />
+                   Margin="0,20,0,-15"  />
+            
             <Label Text="{Binding Main.Temperature}"
-                   FontSize="Header" 
-                   HorizontalOptions="Center" 
-                   TextColor="#2596be" Padding="0,0,0,0" 
-                   Margin="0,0,0,0"/>
-            
+                    FontSize="Title"
+                    HorizontalOptions="Center" 
+                    TextColor="Black" Padding="0,0,0,0" 
+                    Margin="0,20,0,0"/>
+
             <Label Text="Celcius" 
-                   HorizontalTextAlignment="Center"  
-                   TextColor="#2596be" 
-                   Margin="0, -20,0,0"/>
-            
+                    HorizontalTextAlignment="Center"  
+                    TextColor="Black" 
+                    Margin="0,10,0,0"/>
+
+
         </StackLayout>
         <Grid Padding="5">
             <Grid.RowDefinitions>
@@ -120,36 +65,36 @@
             <Label Text="Wind Speed" 
                    Grid.Row="1" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="Black" />
 
             <Label Text="{Binding Wind.Speed}" 
                    Grid.Row="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" 
+                   TextColor="Black" 
                    FontSize="Large"/>
 
             <Label Text="Humidity" 
                    Grid.Row="1" Grid.Column="1" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="Black" />
 
             <Label Text="{Binding Main.Humidity}" 
                    Grid.Row="2" Grid.Column="1" 
                    HorizontalTextAlignment="Center"  
-                   TextColor="#2596be" 
+                   TextColor="Black" 
                    FontSize="Large"/>
 
             <Label Text="Visibility" 
                    Grid.Row="1" 
                    Grid.Column="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="Black" />
 
             <Label Text="{Binding Weather[0].Visibility}" 
                    Grid.Row="2" 
                    Grid.Column="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" 
+                   TextColor="Black" 
                    FontSize="Large"/>
         </Grid>
 

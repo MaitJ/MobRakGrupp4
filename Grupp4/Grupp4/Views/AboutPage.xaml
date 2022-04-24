@@ -6,22 +6,22 @@
         <StackLayout>
             <StackLayout.Background>
                 <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="White"
+                    <GradientStop Color="LightSkyBlue"
                                       Offset="0.1"/>
-                    <GradientStop Color="Gray"
+                    <GradientStop Color="AliceBlue"
                                       Offset="1.0"/>
 
                 </LinearGradientBrush>
 
             </StackLayout.Background>
-            <Frame BackgroundColor="DarkOliveGreen" Padding="24" CornerRadius="0" VerticalOptions="Start">
-                <Label Text="About us" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Frame BackgroundColor="DeepSkyBlue" Padding="24" CornerRadius="0" VerticalOptions="Start">
+                <Label Text="About us" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
             </Frame>
 
             <Label Text="This application is created during the Mobile Application Programming course in Tallinn University." FontSize="Subtitle" Padding="5,10,5,10"/>
 
             <Label Text="Our team includes:" FontSize="Subtitle" Padding="10,5,10,5"/>
-            <ListView  SeparatorColor="ForestGreen" SelectionMode="None">
+            <ListView  SeparatorColor="DeepSkyBlue" SelectionMode="None">
                 <ListView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Martin Kilgi</x:String>
@@ -31,18 +31,7 @@
                         <x:String>Ken Pikanõmme</x:String>
                     </x:Array>
                 </ListView.ItemsSource>
-                
             </ListView>
-
-
-
-
-
-
-
-
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
