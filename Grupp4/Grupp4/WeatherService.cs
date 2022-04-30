@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Grupp4
 {
@@ -35,5 +36,7 @@ namespace Grupp4
                 lastKnownLoc = new Location(37.783333, -122.416667);
             }
         }
+
+        
     }
 }

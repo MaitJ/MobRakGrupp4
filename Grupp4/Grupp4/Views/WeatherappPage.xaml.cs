@@ -17,23 +17,33 @@ namespace Grupp4
         {
             InitializeComponent();
             _restService = new RestService();
-        }
-        async void OnGetWeatherButtonClicked(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
-            {
-                WeatherData weatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.WeatherEndpoint));
-                BindingContext = weatherData;
-            }
+            
         }
 
-        string GenerateRequestUri(string endpoint)
+        public ImageSource ProductImage
         {
-            string requestUri = endpoint;
-            requestUri += $"?q={_cityEntry.Text}";
-            requestUri += "&units=metric";
-            requestUri += $"&APPID={Constants.WeatherAPIKey}";
-            return requestUri;
+            get
+            {
+                var source = new Uri("http://openweathermap.org/img/wn/10d@2x.png");
+                return source;
+            }
         }
+        //async void ongetweatherbuttonclicked(object sender, eventargs e)
+        //{
+        //    if (!string.isnullorwhitespace(_cityentry.text))
+        //    {
+        //        weatherdata weatherdata = await _restservice.getweatherdata(generaterequesturi(constants.weatherendpoint));
+        //        bindingcontext = weatherdata;
+        //    }
+        //}
+
+        //string generaterequesturi(string endpoint)
+        //{
+        //    string requesturi = endpoint;
+        //    requesturi += $"?q={_cityentry.text}";
+        //    requesturi += "&units=metric";
+        //    requesturi += $"&appid={constants.weatherapikey}";
+        //    return requesturi;
+        //}
     }
 }
