@@ -54,6 +54,17 @@
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Settings">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Wrench}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
+
 
 
 
