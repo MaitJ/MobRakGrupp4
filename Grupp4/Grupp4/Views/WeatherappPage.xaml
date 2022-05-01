@@ -16,7 +16,6 @@
 
         </StackLayout.Background>
 
-
         <Grid Margin="20, 40, 20, 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

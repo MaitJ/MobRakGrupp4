@@ -31,7 +31,16 @@
         </FlyoutItem.Icon>
         <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
     </FlyoutItem>
-
+    <FlyoutItem Title="Search">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Search}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Welcome">
         <FlyoutItem.Icon>
             <FontImageSource
@@ -42,7 +51,7 @@
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
     </FlyoutItem>
-    
+
     <FlyoutItem Title="About">
         <FlyoutItem.Icon>
             <FontImageSource
