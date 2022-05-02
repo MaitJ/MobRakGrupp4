@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Weather"
              
              x:Class="Grupp4.WeatherappPage">
-    
-    
 
-    <StackLayout>
+    <StackLayout BackgroundColor="#00b4d8">
         <StackLayout.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="White"
@@ -17,95 +15,59 @@
             </LinearGradientBrush>
 
         </StackLayout.Background>
-        <Grid BackgroundColor="ForestGreen" 
-              Padding="10,5,5,5">
+
+
+        <Grid Margin="20, 40, 20, 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="180" />
             </Grid.ColumnDefinitions>
-            
-            <Label Text="Insert City" 
-                   Grid.ColumnSpan="3"
-                   HorizontalOptions="Center"
-                   TextColor="White" 
-                   FontAttributes="Bold" 
-                   FontSize="Medium" />
 
-            <Label Text="City:" 
-                   Grid.Row="1" 
-                   VerticalOptions="Center"
-                   HorizontalOptions="Fill"
-                   FontSize="Medium"
-                   TextColor="white" />
+            <Label Text="Paide" 
+                   Grid.Row="1" Grid.Column="2"  
+                   FontSize="Title" 
+                   FontAttributes="Bold"
+                   TextColor="#FFFFFF"
+                   HorizontalTextAlignment="Center"
+                   
+                   
+                   />
 
-            <Entry x:Name="_cityEntry"
-                   Grid.Row="1" 
-                   Grid.Column="1"
-                   Margin="0,0"
-                   VerticalOptions="Center"
-                   HorizontalOptions="FillAndExpand"
-                   BackgroundColor="White"
-                   TextColor="DarkGray"
-                   Text="Tallinn" />
+            <Label Text="Saturday" 
+                   Grid.Row="2" Grid.Column="2"  
+                   FontSize="Subtitle" 
+                   FontAttributes="None"
+                   TextColor="#FFFFFF"
+                   HorizontalTextAlignment="Center"/>
 
-            
-        </Grid>
-        <StackLayout BackgroundColor="ForestGreen" Margin="0, -10, 0,0" Padding="10" Spacing="2"  >
-            <Button Text="Find Weather data" 
-                    BackgroundColor="#2596be"
-                    TextColor="White"
-                    Clicked="OnGetWeatherButtonClicked" />
-        </StackLayout>
-
-        
-        <Grid Padding="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Location:" 
-                   Grid.Row="1" 
-                   FontSize="Large" 
-                   TextColor="#2596be" 
-                   HorizontalTextAlignment="End" />
-            
-            <Label Text="{Binding Title}" 
+            <Label Text="Clouds" 
                    Grid.Row="1" Grid.Column="1"  
                    FontSize="Large" 
-                   TextColor="#2596be"  />
+                   TextColor="#FFFFFF"
+                   HorizontalTextAlignment="Center"
+                   Margin="0, 10, 0, 0"/>
         </Grid>
 
 
-        <StackLayout>
-            <Label Text="Temperature:"  
-                   FontSize="Medium" 
-                   TextColor="#2596be" 
+        <StackLayout Margin="0, 0, 0, 15">
+            <Label Text="8°"  
+                   FontSize="Header" 
+                   TextColor="#FFFFFF" 
                    HorizontalTextAlignment="Center" 
                    Margin="0,10,0,-15"  />
-            <Label Text="{Binding Main.Temperature}"
-                   FontSize="Header" 
-                   HorizontalOptions="Center" 
-                   TextColor="#2596be" Padding="0,0,0,0" 
-                   Margin="0,0,0,0"/>
-            
-            <Label Text="Celcius" 
-                   HorizontalTextAlignment="Center"  
-                   TextColor="#2596be" 
-                   Margin="0, -20,0,0"/>
-            
+            <Label Text="Celsius"  
+                   FontSize="Subtitle" 
+                   TextColor="#FFFFFF" 
+                   HorizontalTextAlignment="Center" 
+                   Margin="0,10,0,-15"  />
+
         </StackLayout>
-        <Grid Padding="5">
+        <Grid Padding="5" Margin="10, 50, 10, 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -117,41 +79,190 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <Image Source="wind" WidthRequest="30" HeightRequest="30"></Image>
+
             <Label Text="Wind Speed" 
                    Grid.Row="1" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="#FFFFFF" />
 
-            <Label Text="{Binding Wind.Speed}" 
+            <Label Text="3 m/s" 
                    Grid.Row="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" 
+                   TextColor="#FFFFFF" 
                    FontSize="Large"/>
+
+            <Image Source="humidity" WidthRequest="30" HeightRequest="30" Grid.Column="1"></Image>
 
             <Label Text="Humidity" 
                    Grid.Row="1" Grid.Column="1" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="#FFFFFF" />
 
-            <Label Text="{Binding Main.Humidity}" 
+            <Label Text="50%" 
                    Grid.Row="2" Grid.Column="1" 
                    HorizontalTextAlignment="Center"  
-                   TextColor="#2596be" 
+                   TextColor="#FFFFFF" 
                    FontSize="Large"/>
+
+            <Image Source="visibility" WidthRequest="30" HeightRequest="30" Grid.Column="2"></Image>
 
             <Label Text="Visibility" 
                    Grid.Row="1" 
                    Grid.Column="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" />
+                   TextColor="#FFFFFF" />
 
-            <Label Text="{Binding Weather[0].Visibility}" 
+            <Label Text="4m" 
                    Grid.Row="2" 
                    Grid.Column="2" 
                    HorizontalTextAlignment="Center" 
-                   TextColor="#2596be" 
+                   TextColor="#FFFFFF" 
                    FontSize="Large"/>
         </Grid>
+
+        <Grid Margin="10, 20, 10, 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"  />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame BackgroundColor="#caf0f8"
+                   Padding="5"
+                   HorizontalOptions="Center"
+                   WidthRequest="100"
+                   HeightRequest="160"
+                   CornerRadius="4">
+
+                <StackLayout HeightRequest="140">
+                    <Label Text="Monday"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <Label Text="29 Apr"
+                           TextColor="Black"
+                       FontSize="Small"
+                       FontAttributes="None"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <BoxView Color="#0077b6"
+                       HeightRequest="2"
+                       HorizontalOptions="Fill" />
+
+                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
+
+                    <Label Text="19°C"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           Margin="0, -5, 0, 40"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           />
+
+
+                </StackLayout>
+                
+            </Frame>
+
+            <Frame BackgroundColor="#caf0f8"
+                   Padding="5"
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   WidthRequest="100"
+                   HeightRequest="140"
+                   CornerRadius="4">
+
+                <StackLayout HeightRequest="140">
+                    <Label Text="Tuesday"
+                           TextColor="Black"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <Label Text="30 Apr"
+                           TextColor="Black"
+                       FontSize="Small"
+                       FontAttributes="None"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <BoxView Color="#0077b6"
+                       HeightRequest="2"
+                       HorizontalOptions="Fill" />
+
+                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
+
+                    <Label Text="24°C"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           Margin="0, -5, 0, 40"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           />
+
+
+                </StackLayout>
+
+            </Frame>
+
+            <Frame BackgroundColor="#caf0f8"
+                   Padding="5"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   WidthRequest="100"
+                   HeightRequest="140"
+                   CornerRadius="4">
+
+                <StackLayout HeightRequest="140">
+                    <Label Text="Wednesday"
+                           TextColor="Black"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <Label Text="31 Apr"
+                           TextColor="Black"
+                       FontSize="Small"
+                       FontAttributes="None"
+                       HorizontalTextAlignment="Center"
+                                             />
+
+                    <BoxView Color="#0077b6"
+                       HeightRequest="2"
+                       HorizontalOptions="Fill" />
+
+                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
+
+                    <Label Text="22°C"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           Margin="0, -5, 0, 40"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           />
+
+
+                </StackLayout>
+
+            </Frame>
+
+
+        </Grid>
+        
+
+    
 
     </StackLayout>
 </ContentPage>
