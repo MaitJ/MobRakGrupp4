@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grupp4.FavoritesPage"
+             Title="Favorites">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"  Clicked="OnButtonClicked">
+           
+        </ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    <StackLayout BackgroundColor="#00b4d8">
+        <Entry x:Name="nameEntry"
+               Placeholder="Enter name" Margin="6" />
+        <Button Text="Add to Database"
+                Clicked="OnButtonClicked" Margin="6" />
+      
+        <ListView x:Name="listView"
+                    HasUnevenRows="True"                       
+                    VerticalOptions="FillAndExpand"
+                    SeparatorVisibility="None"
+                    IsPullToRefreshEnabled="True"
+                    ItemSelected="OnItemSelected"
+                    Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Frame HasShadow="True" Margin="8" BackgroundColor="#caf0f8" CornerRadius="4">
+                                <StackLayout>
+                                    <Grid>
+                                    <Label x:Name="idlabel" 
+                                           Text="{Binding Name}" 
+                                           FontSize="Large" 
+                                           FontAttributes="Bold"
+                                           TextColor="Black">
+                                        
+                                    </Label>
+                                    <Label Text= "{Binding Temperature, StringFormat='{0:F2}°'}"
+                   
+                                        HorizontalOptions="End"  FontSize="27" FontAttributes="Bold"
+                                        TextColor="Black" Padding="0,0,0,0" 
+                                        Margin="0,0,0,0"/>
+
+                                    <Label Text="Celsius    "
+                                           Grid.Row="1"
+                                           FontSize="Micro"
+                                           TextColor="Black" 
+                                           HorizontalTextAlignment="End"
+                                           Margin="0,-5,-5,10"
+                                        />
+                                    </Grid>    
+                                    <BoxView Color="#0077b6"
+                                             HeightRequest="2"
+                                             HorizontalOptions="Fill" 
+                                             Margin="0,-15,0,0"/>
+
+
+
+
+                                    
+
+
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"  />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="Wind Speed" 
+                                               Grid.Row="1" 
+                                               HorizontalTextAlignment="Center" 
+                                               TextColor="#0077b6" 
+                                               />
+
+                                        <Label Text="{Binding Wind}" 
+                                               Grid.Row="2" 
+                                               HorizontalTextAlignment="Center" 
+                                               TextColor="#0077b6" 
+                                               FontSize="Medium"/>
+
+                                        <Label Text="Humidity" 
+                                               Grid.Row="1" Grid.Column="1" 
+                                               HorizontalTextAlignment="Center" 
+                                               TextColor="#0077b6" />
+
+                                        <Label Text="{Binding Humidity}" 
+                                               Grid.Row="2" Grid.Column="1" 
+                                               HorizontalTextAlignment="Center"  
+                                               TextColor="#0077b6" 
+                                               FontSize="Medium"/>
+
+                                        <Label Text="Visibility" 
+                                               Grid.Row="1" 
+                                               Grid.Column="2" 
+                                               HorizontalTextAlignment="Center" 
+                                               TextColor="#0077b6" />
+
+                                        <Label Text="{Binding Visibility}" 
+                                               Grid.Row="2" 
+                                               Grid.Column="2" 
+                                               HorizontalTextAlignment="Center" 
+                                               TextColor="#0077b6" 
+                                               FontSize="Medium"/>                           
+                                    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+
+
+
+                                  <!--  <Button Text="delete"  
+                                   HorizontalOptions="End"
+                                   Clicked="OnDeleteClicked" />-->
+
+                                    <Label Text="delete"
+                                          HorizontalOptions="End"
+                                          Margin="0,0,-10,-10"
+                                          TextColor="Black"
+                                          FontSize="Micro"
+                                          >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDeleteClicked"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+
+
+                                </StackLayout>
+                            </Frame>
+
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

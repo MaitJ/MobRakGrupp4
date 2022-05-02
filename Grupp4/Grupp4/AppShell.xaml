@@ -27,10 +27,21 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Favorites">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
+                FontFamily="FAS"
+                Color="#FFFFFF"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="FavoritesPage" ContentTemplate="{DataTemplate local:FavoritesPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Welcome">
@@ -38,7 +49,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
@@ -49,10 +60,21 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color= "#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Wrench}"
+                FontFamily="FAS"
+                Color="ForestGreen"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
 
 
@@ -72,7 +94,7 @@
                        Margin="15"
                        
                        Padding="0,0,0,0"
-                       TextColor="ForestGreen"
+                       TextColor="#FFFFFF"
                        VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Start"
                        />
@@ -83,20 +105,11 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="ForestGreen"
-                                      Offset="0.1"/>
-                        <GradientStop Color="LightGreen"
-                                      Offset="1.0"/>
-
-                    </LinearGradientBrush>
-
-                </Grid.Background>
+            <Grid BackgroundColor="#00b4d8">
+                
                 <Label Text="Menu"
                        FontSize="30"
-                       TextColor="White"
+                       TextColor="#FFFFFF"
                        
                        Padding="5,5,5,5"
                        HorizontalTextAlignment="Center"

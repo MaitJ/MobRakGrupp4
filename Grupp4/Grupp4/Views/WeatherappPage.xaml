@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Weather"
              
-             x:Class="Grupp4.WeatherappPage">
+             x:Class="Grupp4.WeatherappPage"
+             BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
 
     <StackLayout BackgroundColor="#00b4d8">
         <StackLayout.Background>
@@ -12,9 +15,6 @@
                 <GradientStop Color="Gray"
                                       Offset="1.0"/>
 
-            </LinearGradientBrush>
-
-        </StackLayout.Background>
 
 
         <Grid Margin="20, 40, 20, 20">
@@ -189,18 +189,12 @@
                    CornerRadius="4">
 
                 <StackLayout HeightRequest="140">
-                    <Label x:Name="FirstDay" Text="Monday"
-                       FontSize="Medium"
-                       FontAttributes="Bold"
-                       TextColor="Black"
-                       HorizontalTextAlignment="Center"
+                    <Label Text="Monday"
+                       Style="{DynamicResource LabelMedium}"
                                              />
 
-                    <Label x:Name="FirstDayDate" Text="29 Apr"
-                           TextColor="Black"
-                       FontSize="Small"
-                       FontAttributes="None"
-                       HorizontalTextAlignment="Center"
+                    <Label Text="29 Apr"
+                       Style="{DynamicResource LabelSmall}"
                                              />
 
                     <BoxView Color="#0077b6"
@@ -209,12 +203,8 @@
 
                     <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
 
-                    <Label x:Name="FirstDayTemp"
-                           TextColor="Black"
-                           HorizontalTextAlignment="Center"
-                           Margin="0, -5, 0, 40"
-                           FontAttributes="Bold"
-                           FontSize="Medium"
+                    <Label Text="19°C"
+                           Style="{DynamicResource LabelMediumCelsius}"
                            />
 
 
@@ -222,27 +212,15 @@
                 
             </Frame>
 
-            <Frame BackgroundColor="#caf0f8"
-                   Padding="5"
-                   Grid.Column="1"
-                   HorizontalOptions="Center"
-                   WidthRequest="100"
-                   HeightRequest="140"
-                   CornerRadius="4">
+            <Frame Style="{DynamicResource Card}">
 
                 <StackLayout HeightRequest="140">
                     <Label Text="Tuesday"
-                           TextColor="Black"
-                       FontSize="Medium"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
+                        Style="{DynamicResource LabelMedium}"
                                              />
 
                     <Label Text="30 Apr"
-                           TextColor="Black"
-                       FontSize="Small"
-                       FontAttributes="None"
-                       HorizontalTextAlignment="Center"
+                        Style="{DynamicResource LabelSmall}"
                                              />
 
                     <BoxView Color="#0077b6"
@@ -252,11 +230,7 @@
                     <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
 
                     <Label Text="24°C"
-                           TextColor="Black"
-                           HorizontalTextAlignment="Center"
-                           Margin="0, -5, 0, 40"
-                           FontAttributes="Bold"
-                           FontSize="Medium"
+                           Style="{DynamicResource LabelMediumCelsius}"
                            />
 
 
@@ -264,27 +238,15 @@
 
             </Frame>
 
-            <Frame BackgroundColor="#caf0f8"
-                   Padding="5"
-                   Grid.Column="2"
-                   HorizontalOptions="Center"
-                   WidthRequest="100"
-                   HeightRequest="140"
-                   CornerRadius="4">
+            <Frame Style="{DynamicResource Card}" Grid.Column="2">
 
                 <StackLayout HeightRequest="140">
                     <Label Text="Wednesday"
-                           TextColor="Black"
-                       FontSize="Medium"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
+                           Style="{DynamicResource LabelMedium}"
                                              />
 
                     <Label Text="31 Apr"
-                           TextColor="Black"
-                       FontSize="Small"
-                       FontAttributes="None"
-                       HorizontalTextAlignment="Center"
+                           Style="{DynamicResource LabelSmall}"
                                              />
 
                     <BoxView Color="#0077b6"
@@ -294,11 +256,7 @@
                     <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
 
                     <Label Text="22°C"
-                           TextColor="Black"
-                           HorizontalTextAlignment="Center"
-                           Margin="0, -5, 0, 40"
-                           FontAttributes="Bold"
-                           FontSize="Medium"
+                           Style="{DynamicResource LabelMediumCelsius}"
                            />
 
 
