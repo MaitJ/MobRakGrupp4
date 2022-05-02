@@ -119,7 +119,7 @@
                    FontSize="Large"/>
         </Grid>
 
-        <CollectionView x:Name="ForecastView" ItemsLayout="HorizontalGrid">
+        <CollectionView x:Name="ForecastView" ItemsLayout="HorizontalGrid" Margin="10, 20, 0, 0" HeightRequest="165">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:Name="ForecastDataTemplate">
                     <Grid Margin="0, 0, 0, 0">
