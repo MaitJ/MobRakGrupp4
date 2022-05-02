@@ -11,7 +11,7 @@
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="White"
                                       Offset="0.1"/>
-            <GradientStop Color="Gray"
+            <GradientStop Color="LightBlue"
                                       Offset="1.0"/>
 
         </LinearGradientBrush>
@@ -27,7 +27,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
                 FontFamily="FAS"
-                Color="#FFFFFF"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}"/>
@@ -38,7 +38,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
                 FontFamily="FAS"
-                Color="#FFFFFF"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="FavoritesPage" ContentTemplate="{DataTemplate local:FavoritesPage}" />
@@ -49,7 +49,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
                 FontFamily="FAS"
-                Color="#FFFFFF"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
@@ -60,7 +60,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
                 FontFamily="FAS"
-                Color= "#FFFFFF"
+                Color= "Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
@@ -71,7 +71,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Wrench}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
@@ -80,6 +80,7 @@
 
 
 
+    <!--
     <Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
@@ -94,18 +95,19 @@
                        Margin="15"
                        
                        Padding="0,0,0,0"
-                       TextColor="#FFFFFF"
+                       TextColor="Black"
                        VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Start"
                        />
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
+    -->
 
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="#00b4d8">
+            <Grid BackgroundColor="Black">
                 
                 <Label Text="Menu"
                        FontSize="30"

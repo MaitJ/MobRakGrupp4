@@ -26,8 +26,6 @@ namespace Grupp4
 
             }
         }
-        private readonly WeatherService _weatherService;
-        private readonly RestService _restService;
         public App()
         {
             InitializeComponent();
@@ -40,7 +38,6 @@ namespace Grupp4
         protected override void OnStart()
         {
             OnResume();
-            _weatherService.GetCurrentLocation();
 
         }
 
@@ -52,7 +49,6 @@ namespace Grupp4
 
         protected override void OnResume()
         {
-            _weatherService.GetCurrentLocation();
             Helpers.Theme.SetTheme();
             RequestedThemeChanged += App_RequestedThemeChanged;
         }

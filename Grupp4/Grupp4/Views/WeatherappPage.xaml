@@ -7,13 +7,15 @@
                         Dark={StaticResource WindowBackgroundColorDark}, 
                         Light={StaticResource WindowBackgroundColor}}">
 
-    <StackLayout BackgroundColor="#00b4d8">
+    <StackLayout>
         <StackLayout.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="LightBlue"
                                       Offset="0.1"/>
                 <GradientStop Color="Gray"
                                       Offset="1.0"/>
+            </LinearGradientBrush>
+        </StackLayout.Background>
 
 
 
@@ -137,27 +139,17 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Frame BackgroundColor="#caf0f8"
-                           Padding="5"
-                           Grid.Column="{Binding Id}"
-                           HorizontalOptions="Center"
-                           WidthRequest="100"
-                           HeightRequest="160"
-                           CornerRadius="4">
+                        <Frame Style="{DynamicResource Card}"
+                               Grid.Column="{Binding Id}"
+                               >
 
                             <StackLayout HeightRequest="100">
                                 <Label Text="{Binding DayStr}"
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"
-                                       TextColor="Black"
-                                       HorizontalTextAlignment="Center"
+                                       Style="{DynamicResource LabelMedium}"
                                                              />
 
                                 <Label Text="{Binding DayMonth}"
-                                       TextColor="Black"
-                                       FontSize="Small"
-                                       FontAttributes="None"
-                                       HorizontalTextAlignment="Center"
+                                       Style="{DynamicResource LabelMedium}"
                                                                          />
 
                                 <BoxView Color="#0077b6"
@@ -167,11 +159,7 @@
                                 <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
 
                                 <Label Text="{Binding Temperature, StringFormat='{0:F0}C'}"
-                                       TextColor="Black"
-                                       HorizontalTextAlignment="Center"
-                                       Margin="0, -5, 0, 40"
-                                       FontAttributes="Bold"
-                                       FontSize="Medium"
+                                       Style="{DynamicResource LabelMediumCelsius}"
                                        />
                             </StackLayout>
                         </Frame>
