@@ -5,16 +5,7 @@
              x:Class="Grupp4.WeatherappPage">
 
     <StackLayout BackgroundColor="#00b4d8">
-        <StackLayout.Background>
-            <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="White"
-                                      Offset="0.1"/>
-                <GradientStop Color="Gray"
-                                      Offset="1.0"/>
-
-            </LinearGradientBrush>
-
-        </StackLayout.Background>
+        
 
 
         <Grid Margin="20, 40, 20, 20">
