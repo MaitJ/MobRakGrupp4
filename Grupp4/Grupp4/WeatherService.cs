@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -15,18 +16,17 @@ namespace Grupp4
         {
             this._restService = restService;
         }
-        public async void GetCurrentLocation()
+        public async Task<WeatherData> GetCurrentLocationData()
         {
             try
             {
                 lastKnownLoc = await Geolocation.GetLastKnownLocationAsync();
 
                 if (lastKnownLoc == null)
-                    return;
+                    return new WeatherData();
 
                 WeatherData data = await _restService.GetWeatherDataByLoc(lastKnownLoc);
-
-                Debug.WriteLine($"Current temp: {data.Main.Temperature}, City name: {data.Title}");
+                return data;
 
 
             } catch (Exception ex)
@@ -35,8 +35,32 @@ namespace Grupp4
                 Debug.WriteLine("Couldn't receive last known location, exception: ", ex.Message);
                 lastKnownLoc = new Location(37.783333, -122.416667);
             }
+
+            return new WeatherData();
         }
 
+        public async Task<WeatherDataForecast> GetCurrentLocationForecast()
+        {
+            try
+            {
+                lastKnownLoc = await Geolocation.GetLastKnownLocationAsync();
+
+                if (lastKnownLoc == null)
+                    return new WeatherDataForecast();
+
+                WeatherDataForecast data = await _restService.GetWeatherForecastByLoc(lastKnownLoc);
+                return data;
+
+
+            } catch (Exception ex)
+            {
+                //Set some default location
+                Debug.WriteLine("Couldn't receive last known location, exception: ", ex.Message);
+                lastKnownLoc = new Location(37.783333, -122.416667);
+            }
+
+            return new WeatherDataForecast();
+        }
         
     }
 }

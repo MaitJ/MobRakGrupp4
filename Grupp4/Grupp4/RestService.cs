@@ -57,6 +57,39 @@ namespace Grupp4
             return data;
 
         }
+        public async Task<WeatherDataForecast> GetWeatherForecastByLoc(Location loc)
+        {
+            string requestUri = Constants.WeatherForecastEndpoint;
+            requestUri += $"?lat={loc.Latitude}&lon={loc.Longitude}";
+            requestUri += "&units=metric";
+            requestUri += "&exclude=current,minutely,hourly,alerts";
+            requestUri += $"&APPID={Constants.WeatherAPIKey}";
+
+            WeatherDataForecast data = await CallWeatherApi<WeatherDataForecast>(requestUri);
+
+            return data;
+        }
+
+        public async Task<T> CallWeatherApi<T>(string query)
+        {
+            T apiData = default(T);
+            try
+            {
+                var response = await _client.GetAsync(query);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    apiData = JsonConvert.DeserializeObject<T>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\t\tERROR {0}", ex.Message);
+            }
+
+            return apiData;
+
+        }
         public async Task<WeatherData> GetWeatherData(string query)
         {
             WeatherData weatherData = null;

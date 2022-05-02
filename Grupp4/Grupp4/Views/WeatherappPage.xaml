@@ -7,7 +7,13 @@
                         Dark={StaticResource WindowBackgroundColorDark}, 
                         Light={StaticResource WindowBackgroundColor}}">
 
-    <StackLayout>
+    <StackLayout BackgroundColor="#00b4d8">
+        <StackLayout.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="LightBlue"
+                                      Offset="0.1"/>
+                <GradientStop Color="Gray"
+                                      Offset="1.0"/>
 
 
 
@@ -22,24 +28,22 @@
                 <ColumnDefinition Width="180" />
             </Grid.ColumnDefinitions>
 
-            <Label Text="Paide" 
+            <Label Text="{Binding LocationName}"
                    Grid.Row="1" Grid.Column="2"  
                    FontSize="Title" 
                    FontAttributes="Bold"
                    TextColor="#FFFFFF"
                    HorizontalTextAlignment="Center"
-                   
-                   
                    />
 
-            <Label Text="Saturday" 
+            <Label Text="{Binding CurrentDay}" 
                    Grid.Row="2" Grid.Column="2"  
                    FontSize="Subtitle" 
                    FontAttributes="None"
                    TextColor="#FFFFFF"
                    HorizontalTextAlignment="Center"/>
 
-            <Label Text="Clouds" 
+            <Label Text="{Binding Weather}" 
                    Grid.Row="1" Grid.Column="1"  
                    FontSize="Large" 
                    TextColor="#FFFFFF"
@@ -49,7 +53,7 @@
 
 
         <StackLayout Margin="0, 0, 0, 15">
-            <Label Text="8°"  
+            <Label Text="{Binding CurrentTemperature, StringFormat='{0:F0}°'}"  
                    FontSize="Header" 
                    TextColor="#FFFFFF" 
                    HorizontalTextAlignment="Center" 
@@ -80,7 +84,7 @@
                    HorizontalTextAlignment="Center" 
                    TextColor="#FFFFFF" />
 
-            <Label Text="3 m/s" 
+            <Label Text="{Binding WindSpeed, StringFormat='{0:F1} m/s'}" 
                    Grid.Row="2" 
                    HorizontalTextAlignment="Center" 
                    TextColor="#FFFFFF" 
@@ -93,7 +97,7 @@
                    HorizontalTextAlignment="Center" 
                    TextColor="#FFFFFF" />
 
-            <Label Text="50%" 
+            <Label Text="{Binding Humidity, StringFormat='{0}%'}" 
                    Grid.Row="2" Grid.Column="1" 
                    HorizontalTextAlignment="Center"  
                    TextColor="#FFFFFF" 
@@ -107,7 +111,7 @@
                    HorizontalTextAlignment="Center" 
                    TextColor="#FFFFFF" />
 
-            <Label Text="4m" 
+            <Label Text="{Binding Visibility, StringFormat='{0}m'}" 
                    Grid.Row="2" 
                    Grid.Column="2" 
                    HorizontalTextAlignment="Center" 
@@ -115,19 +119,74 @@
                    FontSize="Large"/>
         </Grid>
 
-        <Grid Margin="10, 20, 10, 20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <CollectionView x:Name="ForecastView" ItemsLayout="HorizontalGrid" Margin="10, 20, 0, 0" HeightRequest="165">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:Name="ForecastDataTemplate">
+                    <Grid Margin="0, 0, 0, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"  />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"  />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto"  />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-            <Frame Style="{DynamicResource Card}" Grid.Column="1">
+                        <Frame BackgroundColor="#caf0f8"
+                           Padding="5"
+                           Grid.Column="{Binding Id}"
+                           HorizontalOptions="Center"
+                           WidthRequest="100"
+                           HeightRequest="160"
+                           CornerRadius="4">
+
+                            <StackLayout HeightRequest="100">
+                                <Label Text="{Binding DayStr}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"
+                                                             />
+
+                                <Label Text="{Binding DayMonth}"
+                                       TextColor="Black"
+                                       FontSize="Small"
+                                       FontAttributes="None"
+                                       HorizontalTextAlignment="Center"
+                                                                         />
+
+                                <BoxView Color="#0077b6"
+                                           HeightRequest="2"
+                                           HorizontalOptions="Fill" />
+
+                                <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
+
+                                <Label Text="{Binding Temperature, StringFormat='{0:F0}C'}"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"
+                                       Margin="0, -5, 0, 40"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+            <!--
+            
+            <Frame BackgroundColor="#caf0f8"
+                   Padding="5"
+                   HorizontalOptions="Center"
+                   WidthRequest="100"
+                   HeightRequest="160"
+                   CornerRadius="4">
 
                 <StackLayout HeightRequest="140">
                     <Label Text="Monday"
@@ -204,10 +263,8 @@
                 </StackLayout>
 
             </Frame>
+            -->
 
-
-        </Grid>
-        
 
     
 

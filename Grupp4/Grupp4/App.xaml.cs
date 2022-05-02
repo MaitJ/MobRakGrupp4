@@ -35,8 +35,6 @@ namespace Grupp4
             Theme.SetTheme();
 
             MainPage = new AppShell();
-            _restService = new RestService();
-            _weatherService = new WeatherService(_restService);
         }
 
         protected override void OnStart()
