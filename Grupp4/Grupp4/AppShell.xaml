@@ -5,15 +5,9 @@
        xmlns:local="clr-namespace:Grupp4"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
-       BackgroundColor="ForestGreen">
-    <Shell.FlyoutBackground>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="White"
-                                      Offset="0.1"/>
-            <GradientStop Color="Gray"
-                                      Offset="1.0"/>
-
-        </LinearGradientBrush>
+       BackgroundColor= "#00b4d8">
+    <Shell.FlyoutBackground >
+        <SolidColorBrush Color="#00b4d8"></SolidColorBrush>
 
     </Shell.FlyoutBackground>
     <!--
@@ -26,10 +20,21 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Favorites">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
+                FontFamily="FAS"
+                Color="#FFFFFF"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="FavoritesPage" ContentTemplate="{DataTemplate local:FavoritesPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Welcome">
@@ -37,7 +42,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
@@ -48,7 +53,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color= "#FFFFFF"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
@@ -71,7 +76,7 @@
                        Margin="15"
                        
                        Padding="0,0,0,0"
-                       TextColor="ForestGreen"
+                       TextColor="#FFFFFF"
                        VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Start"
                        />
@@ -82,20 +87,11 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="ForestGreen"
-                                      Offset="0.1"/>
-                        <GradientStop Color="LightGreen"
-                                      Offset="1.0"/>
-
-                    </LinearGradientBrush>
-
-                </Grid.Background>
+            <Grid BackgroundColor="#00b4d8">
+                
                 <Label Text="Menu"
                        FontSize="30"
-                       TextColor="White"
+                       TextColor="#FFFFFF"
                        
                        Padding="5,5,5,5"
                        HorizontalTextAlignment="Center"
