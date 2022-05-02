@@ -149,7 +149,7 @@ namespace Grupp4
 
         private void refreshForecasts(WeatherDataForecast forecastData)
         {
-            for (int i = 1; i < 4; ++i)
+            for (int i = 1; i < 8; ++i)
             {
                 Forecast forecast = new Forecast();
                 DateTimeOffset currentDt = DateTimeOffset.FromUnixTimeSeconds(forecastData.daily[i].Dt);

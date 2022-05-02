@@ -119,26 +119,26 @@
                    FontSize="Large"/>
         </Grid>
 
-        <CollectionView x:Name="ForecastView">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"></GridItemsLayout>
-            </CollectionView.ItemsLayout>
+        <CollectionView x:Name="ForecastView" ItemsLayout="HorizontalGrid">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:Name="ForecastDataTemplate">
-                    <Grid Margin="10, 10, 10, 20">
+                    <Grid Margin="0, 0, 0, 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"  />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto"  />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto"  />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
                         <Frame BackgroundColor="#caf0f8"
                            Padding="5"
-                           Grid.Row="0"
                            Grid.Column="{Binding Id}"
                            HorizontalOptions="Center"
                            WidthRequest="100"
