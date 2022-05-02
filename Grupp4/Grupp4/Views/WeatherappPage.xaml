@@ -7,8 +7,8 @@
                         Dark={StaticResource WindowBackgroundColorDark}, 
                         Light={StaticResource WindowBackgroundColor}}">
 
-
     <StackLayout>
+
 
 
         <Grid Margin="20, 40, 20, 20">
