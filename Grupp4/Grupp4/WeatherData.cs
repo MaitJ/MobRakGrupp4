@@ -44,6 +44,61 @@ namespace Grupp4
         public long Cod { get; set; }
     }
 
+    public class City
+    {
+        [JsonProperty("id")]
+        public long Id { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("coord")]
+        public Coord coord { get; set; }
+        [JsonProperty("country")]
+        public string Country { get; set; }
+        [JsonProperty("population")]
+        public long Population { get; set; }
+        [JsonProperty("timezone")]
+        public long TimeZone { get; set; }
+    }
+
+    public class WeatherDataForecast
+    {
+
+        [JsonProperty("daily")]
+        public DayForecast[] daily { get; set; }
+
+    }
+
+    public class DayForecast
+    {
+        [JsonProperty("dt")]
+        public long Dt { get; set; }
+
+        [JsonProperty("sunrise")]
+        public long Sunrise { get; set; }
+        [JsonProperty("sunset")]
+        public long sunset { get; set; }
+        [JsonProperty("temp")]
+        public Temperature Temperature { get; set; }
+
+    }
+
+    public class Temperature
+    {
+        [JsonProperty("day")]
+        public float Day { get; set; }
+        [JsonProperty("min")]
+        public float Min { get; set; }
+        [JsonProperty("max")]
+        public float Max { get; set; }
+        [JsonProperty("night")]
+        public float Night { get; set; }
+        [JsonProperty("eve")]
+        public float Evening { get; set; }
+        [JsonProperty("morn")]
+        public float Morning { get; set; }
+    }
+
 
     public class Clouds
     {
