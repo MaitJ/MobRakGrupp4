@@ -14,6 +14,7 @@ namespace Grupp4
     {
         RestService _restService;
         Timer searchTimer;
+
         public SearchPage()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace Grupp4
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
                 WeatherData weatherData = await _restService.GetWeatherData(GenerateWeatherRequestUri(Constants.WeatherEndpoint));
+
                 BindingContext = weatherData;
             }
         }
@@ -72,5 +74,6 @@ namespace Grupp4
         }
 
     }
+
 
 }

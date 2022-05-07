@@ -2,15 +2,16 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:fontAwesome="clr-namespace:FontAwesome"
-       xmlns:local="clr-namespace:Grupp4"
+       xmlns:local="clr-namespace:Grupp4" x:DataType="local:AppShell"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
-       BackgroundColor="ForestGreen">
+       BackgroundColor="ForestGreen"
+       >
     <Shell.FlyoutBackground>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="White"
                                       Offset="0.1"/>
-            <GradientStop Color="Gray"
+            <GradientStop Color="LightBlue"
                                       Offset="1.0"/>
 
         </LinearGradientBrush>
@@ -26,10 +27,21 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Sun}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
-        <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}" />
+        <ShellContent Route="WeatherappPage" ContentTemplate="{DataTemplate local:WeatherappPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Favorites">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.List}"
+                FontFamily="FAS"
+                Color="Black"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="FavoritesPage" ContentTemplate="{DataTemplate local:FavoritesPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Search">
         <FlyoutItem.Icon>
@@ -46,7 +58,7 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
@@ -57,15 +69,27 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color= "Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Settings">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Wrench}"
+                FontFamily="FAS"
+                Color="Black"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
 
 
 
+
+    <!--
     <Shell.ItemTemplate>
         <DataTemplate>
             <Grid ColumnDefinitions="0.2*,0.8*">
@@ -80,31 +104,23 @@
                        Margin="15"
                        
                        Padding="0,0,0,0"
-                       TextColor="ForestGreen"
+                       TextColor="Black"
                        VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Start"
                        />
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
+    -->
 
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="ForestGreen"
-                                      Offset="0.1"/>
-                        <GradientStop Color="LightGreen"
-                                      Offset="1.0"/>
-
-                    </LinearGradientBrush>
-
-                </Grid.Background>
+            <Grid BackgroundColor="Black">
+                
                 <Label Text="Menu"
                        FontSize="30"
-                       TextColor="White"
+                       TextColor="#FFFFFF"
                        
                        Padding="5,5,5,5"
                        HorizontalTextAlignment="Center"

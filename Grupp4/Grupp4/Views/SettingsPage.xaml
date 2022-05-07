@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Grupp4.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
+    Title="Settings"
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
+    <ScrollView>
+        <Grid Padding="12" ColumnDefinitions=".05*,.9*,.05*">
+            <StackLayout Grid.Column="1">
+                <Label
+                    Margin="0,12,0,0"
+                    Style="{DynamicResource LabelMedium}"
+                    Text="Theme" />
+                <Frame Style="{DynamicResource Card}">
+                    <Grid
+                        ColumnDefinitions="*,Auto,Auto,Auto,*"
+                        ColumnSpacing="10"
+                        RadioButtonGroup.GroupName="ThemeGroup"
+                        RowDefinitions="Auto,Auto"
+                        RowSpacing="10">
+                        <RadioButton
+                            x:Name="RadioButtonSystem"
+                            Grid.Column="1"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="System">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.UserCog}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="System"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton
+                            x:Name="RadioButtonLight"
+                            Grid.Column="2"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="Light">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.Sun}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="Light"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton
+                            x:Name="RadioButtonDark"
+                            Grid.Column="3"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="Dark">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.Moon}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="Dark"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
