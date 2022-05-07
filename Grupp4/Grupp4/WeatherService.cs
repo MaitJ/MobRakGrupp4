@@ -21,7 +21,6 @@ namespace Grupp4
             try
             {
                 lastKnownLoc = await Geolocation.GetLastKnownLocationAsync();
-
                 if (lastKnownLoc == null)
                     return new WeatherData();
 

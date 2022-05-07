@@ -50,6 +50,9 @@
     <Compile Update="Views\MicrophonePage.xaml.cs">
       <DependentUpon>MicrophonePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -86,7 +89,7 @@
     <EmbeddedResource Update="Views\WeatherappPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\WeatherPage.xaml">
+    <EmbeddedResource Update="Views\SearchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

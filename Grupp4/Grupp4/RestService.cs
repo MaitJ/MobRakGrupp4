@@ -109,5 +109,28 @@ namespace Grupp4
 
             return weatherData;
         }
+
+        public async Task<SearchData> GetSearchData(string query)
+        {
+            SearchData searchData = null;
+            try
+            {
+                var response = await _client.GetAsync(query);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    searchData = JsonConvert.DeserializeObject<SearchData>(content);
+                    for (int i = 0; i < searchData.data.Count; i++) {
+                        Console.WriteLine(searchData.data[i].name);
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\t\tERROR {0}", ex.Message);
+            }
+
+            return searchData;
+        }
     }
 }

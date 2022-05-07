@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,21 +13,49 @@ namespace Grupp4
     public partial class SearchPage : ContentPage
     {
         RestService _restService;
+        Timer searchTimer;
+
         public SearchPage()
         {
             InitializeComponent();
             _restService = new RestService();
         }
-        async void OnGetWeatherButtonClicked(object sender, EventArgs e)
+
+        async void OnTextChanged(object sender, EventArgs e)
         {
+            if (searchTimer != null)
+                searchTimer.Stop();
+            else 
+            {
+                searchTimer = new Timer(300);
+                searchTimer.Elapsed += async delegate 
+                {
+                    if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
+                    {
+                        SearchData searchData = await _restService.GetSearchData(GenerateSearchRequestUri(Constants.CitiesEndPoint));
+                    }
+                        
+                };
+            }
+            searchTimer.Start();
+        }
+        async void OnGetWeatherSearch(object sender, EventArgs e)
+        {
+            if (searchTimer != null)
+            {
+                searchTimer.Close();
+                searchTimer = null;
+            }
+
             if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
             {
-                WeatherData weatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.WeatherEndpoint));
+                WeatherData weatherData = await _restService.GetWeatherData(GenerateWeatherRequestUri(Constants.WeatherEndpoint));
+
                 BindingContext = weatherData;
             }
         }
 
-        string GenerateRequestUri(string endpoint)
+        string GenerateWeatherRequestUri(string endpoint)
         {
             string requestUri = endpoint;
             requestUri += $"?q={_cityEntry.Text}";
@@ -35,5 +63,17 @@ namespace Grupp4
             requestUri += $"&APPID={Constants.WeatherAPIKey}";
             return requestUri;
         }
+
+        string GenerateSearchRequestUri(string endpoint)
+        {
+            string requestUri = endpoint;
+            requestUri += $"?limit=5";
+            requestUri += $"&namePrefix={_cityEntry.Text}";
+            requestUri += $"&rapidapi-key={Constants.CitiesAPIKey}";
+            return requestUri;
+        }
+
     }
+
+
 }

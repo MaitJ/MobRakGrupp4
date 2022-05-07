@@ -190,6 +190,7 @@ namespace Grupp4
                 return source;
             }
         }
+
         //async void ongetweatherbuttonclicked(object sender, eventargs e)
         //{
         //    if (!string.isnullorwhitespace(_cityentry.text))
