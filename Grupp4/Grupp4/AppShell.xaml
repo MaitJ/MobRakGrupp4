@@ -53,27 +53,6 @@
         </FlyoutItem.Icon>
         <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Welcome">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Warehouse}"
-                FontFamily="FAS"
-                Color="Black"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="About">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Info}"
-                FontFamily="FAS"
-                Color= "Black"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-    </FlyoutItem>
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.Icon>
