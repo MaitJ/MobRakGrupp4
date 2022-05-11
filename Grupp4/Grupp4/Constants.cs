@@ -15,5 +15,8 @@ namespace Grupp4
         public static string CitiesEndPoint = "https://wft-geo-db.p.rapidapi.com/v1/geo/cities";
         public static string CitiesAPIKey = "08d199c7b9mshf2311cba0e34b7fp12acabjsn2aa2b5829d44";
 
+        public static string GoogleAutoCompleteEndpoint = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
+        public static string GoogleAutoCompleteAPIKey = "AIzaSyAhD64kB8w4TPRBx_UrDRWMBxXyXWphdFc";
+
     }
 }

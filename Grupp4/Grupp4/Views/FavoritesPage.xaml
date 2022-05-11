@@ -4,17 +4,24 @@
              x:Class="Grupp4.FavoritesPage"
              Title="Favorites">
 
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="+"  Clicked="OnButtonClicked">
            
         </ToolbarItem>
         
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <StackLayout BackgroundColor="#00b4d8">
         <Entry x:Name="nameEntry"
-               Placeholder="Enter name" Margin="6" />
-        <Button Text="Add to Database"
-                Clicked="OnButtonClicked" Margin="6" />
+               Placeholder="Search city...." Margin="6" />
+        <Button Text="Add to favourites"
+                Clicked="OnButtonClicked"
+                BackgroundColor="#0077b6"
+                BorderColor="#caf0f8"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                BorderWidth="2"
+                CornerRadius="14"
+                Margin="6" />
       
         <ListView x:Name="listView"
                     HasUnevenRows="True"                       
@@ -22,6 +29,7 @@
                     SeparatorVisibility="None"
                     IsPullToRefreshEnabled="True"
                     ItemSelected="OnItemSelected"
+                    ItemTapped="OnItemTapped"
                     Refreshing="ListView_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -50,18 +58,11 @@
                                            HorizontalTextAlignment="End"
                                            Margin="0,-5,-5,10"
                                         />
-                                    </Grid>    
+                                    </Grid>
                                     <BoxView Color="#0077b6"
                                              HeightRequest="2"
                                              HorizontalOptions="Fill" 
                                              Margin="0,-15,0,0"/>
-
-
-
-
-                                    
-
-
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />

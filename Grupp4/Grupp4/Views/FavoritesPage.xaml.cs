@@ -166,9 +166,17 @@ namespace Grupp4
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ListView btn = (ListView)sender;
-            await Navigation.PushAsync(new SearchPage());
+            Console.WriteLine("textsender: ", btn);
+            await Navigation.PushAsync(new WeatherappPage());
 
 
+        }
+
+        public void OnItemTapped(object sender, ItemTappedEventArgs e) { 
+            var myListView = (ListView)sender; 
+            var myItem = myListView.SelectedItem;
+            Console.WriteLine("sender: ", myListView);
+            Console.WriteLine("myItem: ", myItem);
         }
 
     }

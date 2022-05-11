@@ -5,15 +5,14 @@
        xmlns:local="clr-namespace:Grupp4" x:DataType="local:AppShell"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
-       BackgroundColor="ForestGreen"
+       BackgroundColor="#0077b6"
        >
     <Shell.FlyoutBackground>
         <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="White"
+            <GradientStop Color="Beige"
                                       Offset="0.1"/>
-            <GradientStop Color="LightBlue"
+            <GradientStop Color="DodgerBlue"
                                       Offset="1.0"/>
-
         </LinearGradientBrush>
 
     </Shell.FlyoutBackground>
@@ -48,10 +47,20 @@
             <FontImageSource
                 Glyph="{x:Static fontAwesome:FontAwesomeIcons.Search}"
                 FontFamily="FAS"
-                Color="ForestGreen"
+                Color="Black"
                  />
         </FlyoutItem.Icon>
         <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Places">
+        <FlyoutItem.Icon>
+            <FontImageSource
+                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Search}"
+                FontFamily="FAS"
+                Color="Black"
+                 />
+        </FlyoutItem.Icon>
+        <ShellContent Route="GooglePlaces" ContentTemplate="{DataTemplate local:GooglePlaces}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">
@@ -95,11 +104,11 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="Black">
+            <Grid BackgroundColor="LightBlue">
                 
                 <Label Text="Menu"
                        FontSize="30"
-                       TextColor="#FFFFFF"
+                       TextColor="Black"
                        
                        Padding="5,5,5,5"
                        HorizontalTextAlignment="Center"

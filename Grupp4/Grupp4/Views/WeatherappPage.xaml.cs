@@ -18,6 +18,7 @@ namespace Grupp4
         public string Month { get; set; }
         public string DayMonth { get; set; }
         public double Temperature { get; set; }
+        public string Icon { get; set; }
     }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeatherappPage : ContentPage
@@ -159,6 +160,8 @@ namespace Grupp4
                 forecast.DayStr = date.DayOfWeek.ToString();
                 forecast.Month = date.Month.ToString();
                 forecast.Temperature = forecastData.daily[i].Temperature.Day;
+                forecast.Icon = forecastData.daily[i].Weather[0].Icon;
+                //forecast.Icon = new Uri("http://openweathermap.org/img/wn/10d@2x.png");
                 _forecasts.Add(forecast);
             }
             ForecastView.ItemsSource = Forecasts;
@@ -188,6 +191,32 @@ namespace Grupp4
             {
                 var source = new Uri("http://openweathermap.org/img/wn/10d@2x.png");
                 return source;
+            }
+        }
+
+        public void OnHeartTapped(object sender, EventArgs args)
+        {
+
+            try
+            {
+                //Siia kood, et votaks andmed ja lisaks siis favourites listi
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void OnSearchTapped(object sender, EventArgs args)
+        {
+
+            try
+            {
+                //Siia kood, et toggleks search bari
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

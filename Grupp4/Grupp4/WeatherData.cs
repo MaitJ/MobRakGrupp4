@@ -81,6 +81,15 @@ namespace Grupp4
         [JsonProperty("temp")]
         public Temperature Temperature { get; set; }
 
+        [JsonProperty("weather")]
+        public DayForecastWeather[] Weather { get; set; }
+
+    }
+
+    public class DayForecastWeather
+    {
+        [JsonProperty("icon")]
+        public string Icon { get; set; }
     }
 
     public class Temperature
