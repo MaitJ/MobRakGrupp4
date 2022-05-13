@@ -8,14 +8,6 @@
                         Light={StaticResource WindowBackgroundColor}}">
 
     <StackLayout>
-        <StackLayout.Background>
-            <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="#00b4d8"
-                                      Offset="0.1"/>
-                <GradientStop Color="#0077b6"
-                                      Offset="1.0"/>
-            </LinearGradientBrush>
-        </StackLayout.Background>
 
         <Grid Margin="20, 20, 20, 20">
             <Grid.RowDefinitions>
@@ -139,7 +131,8 @@
 
                         <Frame Style="{DynamicResource Card}"
                                Grid.Column="{Binding Id}"
-                               BackgroundColor="#90e0ef"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColorMain},
+                                                      Light={StaticResource LightRadioButtonColorMain}}"
                                >
 
                             <StackLayout HeightRequest="100">

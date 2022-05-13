@@ -15,12 +15,27 @@
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="TextColor">#000000</Color>
             <Color x:Key="TextColorDark">White</Color>
+            
+            <Color x:Key="WindowBackgroundColor">#00b4d8</Color>
+            <Color x:Key="WindowBackgroundColorDark">#1C1C1E</Color>
 
-            <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
-            <Color x:Key="WindowBackgroundColorDark">Black</Color>
+            <Color x:Key="CardBackground">#90e0ef</Color>
+            <Color x:Key="CardBackgroundDark">#2C2C2E</Color>
 
-            <Color x:Key="CardBackground">White</Color>
-            <Color x:Key="CardBackgroundDark">#1C1C1E</Color>
+            <Color x:Key="LightRadioButtonColor">#F3F2F1</Color>
+            <Color x:Key="DarkRadioButtonColor">#9B9A99</Color>
+
+            <Color x:Key="LightRadioButtonColorMain">#90e0ef</Color>
+            <Color x:Key="DarkRadioButtonColorMain">#9B9A99</Color>
+
+            <Color x:Key="MenuHeaderColorLight">Lightblue</Color>
+            <Color x:Key="MenuHeaderColorDark">#3A3A3C</Color>
+
+            <Color x:Key="LightMenuColor">#0077b6</Color>
+            <Color x:Key="DarkMenuColor">black</Color>
+
+            <Color x:Key="LightMenuBackgroundColor">DodgerBlue</Color>
+            <Color x:Key="DarkMenuBackgroundColor">black</Color>
 
             <Color x:Key="SystemBlue">#007AFF</Color>
             <Color x:Key="SystemGreen">#34C759</Color>
@@ -104,6 +119,16 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
 
+            <Style x:Key="LabelMenuHeader" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Padding" Value="5,5,5,5"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
+                    Light={StaticResource TextColor}}" />
+            </Style>
+
             <Style x:Key="LabelLarge" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
                 <Setter Property="FontSize" Value="Large"/>
             </Style>
@@ -120,6 +145,15 @@
                 <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
                     Light={StaticResource TextColor}}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="Card-Settings" TargetType="Frame">
+                <Setter Property="HasShadow" 
+                        Value="{OnPlatform Android=true, iOS=false, Default=true}"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark},
+                    Light={StaticResource CardBackground}}"/>
             </Style>
 
             <Style x:Key="Card" TargetType="Frame">

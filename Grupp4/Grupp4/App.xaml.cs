@@ -28,6 +28,7 @@ namespace Grupp4
         }
         public App()
         {
+            Device.SetFlags(new string[] { "Brush_Experimental" });
             InitializeComponent();
 
             Theme.SetTheme();
