@@ -1,6 +1,31 @@
-# MobRakGrupp4
+# Ilmateate rakendus (Grupp 4)
 
-## Projekti ülesseadmine
+## Kuidas kompilleerida ja installeerida
+
+1. Kloonida Githubist antud repositooriumist kood käsuga ```git clone https://github.com/MaitJ/MobRakGrupp4.git```.
+2. Avada Visual Studio Code's kloonitud kaustast lahendus (.sln laiendiga) fail.
+3. Käivitada rakendus ülemisel ribal oleval rohelisele noolele vajutades.
+
+## Kasutuses olevad teegid ja projekti üldinformatsioon
+
+.NET versioon: ```.NET Standard 2.0```
+
+* NETStandard library (ver 2.0.3)
+* Newtonsoft.Json (ver 13.0.1)
+* sqlite-net-pcl (ver 1.8.116)
+* Xamarin.CommunityToolkit (ver 2.0.1)
+* Xamarin.Essentials (ver 1.7.0)
+* Xamarin.Forms (ver 5.0.0.2291) 
+
+## Autorid
+
+* Martin Kilgi
+* Ken Pikanõmme
+* Oliver Labi
+* Mait Jurask
+* Alex Nelke
+
+## Algse projekti ülesseadmine
 
 1. Avada Visual Studio
 2. Valida "Create a new project"
@@ -9,29 +34,3 @@
 5. Lisada projektile nimi ja vajutada "Create"
 6. Pakutakse kolme erinevat template'i: Flyout, Tabbed ja Blank, millest kahel esimesel on algsed menüü navigeerimise funktsioonid valmis.
 7. Vajutades "Create" tehakse projekt valmis.
-
-## Kergused / raskused
-
-Järgisime erinevaid õpetusvideod ning samuti ka Xamarini enda dokumentatsiooni, kuidas kõige lihtsam projekt valmis teha ja see käima panna.
-
-Kuna selleks, et algne programm emulaatoris käima panna, on põhjalik juhend olemas ning tänu sellele ei tekkinud hetkel ka mingeid raskeid kohti.
-
-Emulaatori peal programmi käivitamisega probleeme ei olnud, küll aga oli ühel tiimiliikmel Android telefoni peal raskusi käima saamisega ning samuti võttis aega, et MacOS'i peal Iphone peale debuggeri tööle saaks.
-
-## 3. kodutöö
-
-### Kerged
-
-Enamus asjad on Xamarin Forms'i dokumentatsioonis kirjas ning väga palju ise välja mõtlema ei pea.
-
-### Rasked
-
-Otseselt väga keerulisi asju ei olnud. Tuli lihtsalt aru saada, kus ja mille järgi komponendid üksteisega ühilduvad (näiteks ühes failis "Button" ja teises failis List). Üks asi mida uurida tuleb veel on Xamarin Forms'i Shell.
-
-## 4. kodutöö
-
-### Kerged
-
-### Rasked
-
-Mikrofoni kasutamisel oli kõige keerulisem osa kasutaja käest loa küsimine mikrofoni kasutamiseks.
