@@ -108,11 +108,10 @@ namespace Grupp4
 
         public WeatherappPage()
         {
-            InitializeComponent();
             _restService = new RestService();
             _weatherService = new WeatherService(_restService);
             BindingContext = this;
-            
+            InitializeComponent();
         }
         private string GetCurrentTime()
         {
@@ -150,6 +149,10 @@ namespace Grupp4
 
         private void refreshForecasts(WeatherDataForecast forecastData)
         {
+            if (forecastData.daily == null)
+            {
+                return;
+            }
             for (int i = 1; i < 8; ++i)
             {
                 Forecast forecast = new Forecast();
@@ -163,24 +166,49 @@ namespace Grupp4
                 forecast.Icon = forecastData.daily[i].Weather[0].Icon;
                 //forecast.Icon = new Uri("http://openweathermap.org/img/wn/10d@2x.png");
                 _forecasts.Add(forecast);
+                ForecastView.ItemsSource = Forecasts;
             }
-            ForecastView.ItemsSource = Forecasts;
 
         }
 
-        protected override async void OnAppearing()
+        protected async Task FetchWeather()
         {
             WeatherDataForecast forecastData = await _weatherService.GetCurrentLocationForecast();
             refreshForecasts(forecastData);
             weatherData = await _weatherService.GetCurrentLocationData();
 
-            LocationName = weatherData.Title;
-            CurrentTemperature = weatherData.Main.Temperature;
-            CurrentDay = GetCurrentTime();
-            Weather = weatherData.Weather[0].Visibility;
-            WindSpeed = weatherData.Wind.Speed;
-            Humidity = weatherData.Main.Humidity;
-            Visibility = weatherData.Visibility;
+            if (weatherData.Title != null)
+            {
+                LocationName = weatherData.Title;
+                CurrentTemperature = weatherData.Main.Temperature;
+                CurrentDay = GetCurrentTime();
+                Weather = weatherData.Weather[0].Visibility;
+                WindSpeed = weatherData.Wind.Speed;
+                Humidity = weatherData.Main.Humidity;
+                Visibility = weatherData.Visibility;
+            }
+
+        }
+
+        protected override async void OnAppearing()
+        {
+            await FetchWeather();
+            /*
+            //WeatherDataForecast forecastData = await _weatherService.GetCurrentLocationForecast();
+            //refreshForecasts(forecastData);
+            weatherData = await _weatherService.GetCurrentLocationData();
+
+            if (weatherData.Title != null)
+            {
+                LocationName = weatherData.Title;
+                CurrentTemperature = weatherData.Main.Temperature;
+                CurrentDay = GetCurrentTime();
+                Weather = weatherData.Weather[0].Visibility;
+                WindSpeed = weatherData.Wind.Speed;
+                Humidity = weatherData.Main.Humidity;
+                Visibility = weatherData.Visibility;
+            }
+            */
 
             base.OnAppearing();
         }

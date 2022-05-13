@@ -50,7 +50,7 @@
                 Color="Black"
                  />
         </FlyoutItem.Icon>
-        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
+        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}"/>
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">

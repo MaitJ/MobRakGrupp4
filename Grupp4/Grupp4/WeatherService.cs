@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -12,15 +13,18 @@ namespace Grupp4
     {
         private readonly RestService _restService;
         Location lastKnownLoc;
+        CancellationTokenSource cts;
         public WeatherService(RestService restService)
         {
             this._restService = restService;
+            cts = new CancellationTokenSource();
         }
         public async Task<WeatherData> GetCurrentLocationData()
         {
             try
             {
-                lastKnownLoc = await Geolocation.GetLastKnownLocationAsync();
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+                lastKnownLoc = await Geolocation.GetLocationAsync(request, cts.Token);
                 if (lastKnownLoc == null)
                     return new WeatherData();
 
@@ -42,7 +46,8 @@ namespace Grupp4
         {
             try
             {
-                lastKnownLoc = await Geolocation.GetLastKnownLocationAsync();
+                var request = new GeolocationRequest(GeolocationAccuracy.Best, TimeSpan.FromSeconds(10));
+                lastKnownLoc = await Geolocation.GetLocationAsync(request, cts.Token);
 
                 if (lastKnownLoc == null)
                     return new WeatherDataForecast();
