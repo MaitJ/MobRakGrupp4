@@ -24,18 +24,14 @@ namespace Grupp4
         {
 
             base.OnAppearing();
-            //collectionView.ItemsSource = await App.PlaceDatabase.GetPlacesAsync();
+
             var Places = await App.PlaceDatabase.GetPlacesAsync();
 
             if (Places != null)
             {
                 foreach (var item in Places)
                 {
-                    //Console.WriteLine(item.Name);
-                    //Console.WriteLine(item.Id);
-
-
-
+               
                     string requestUri = Constants.WeatherEndpoint;
                     requestUri += $"?q={item.Name}";
                     requestUri += "&units=metric";
@@ -46,8 +42,6 @@ namespace Grupp4
                     item.Wind = weatherData.Wind.Speed;
                     item.Humidity = weatherData.Main.Humidity;
                     item.Visibility = weatherData.Weather[0].Visibility;
-                    //Console.WriteLine(item.Temperature);
-
 
                 }
                 listView.ItemsSource = Places;
@@ -61,53 +55,7 @@ namespace Grupp4
             RefreshList();
             listView.EndRefresh();
         }
-        /*private async double GetWeather(string Name)
-        {
-
-            string requestUri = Constants.WeatherEndpoint;
-            requestUri += $"?q={Name}";
-            requestUri += "&units=metric";
-            requestUri += $"&APPID={Constants.WeatherAPIKey}";
-            WeatherData weatherData = await _restService.GetWeatherData(requestUri);
-            double temperature = weatherData.Main.Temperature;
-                
-            return temperature;
-
-        }
-        async void OnGetWeatherButtonClicked(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(_cityEntry.Text))
-            {
-                WeatherData weatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.WeatherEndpoint));
-                BindingContext = weatherData;
-            }
-        }
-
-        string GenerateRequestUri(string endpoint)
-        {
-            string requestUri = endpoint;
-            requestUri += $"?q={_cityEntry.Text}";
-            requestUri += "&units=metric";
-            requestUri += $"&APPID={Constants.WeatherAPIKey}";
-            return requestUri;
-        }
-
-
-
-        string GetNameOf(object topLevelXaml)
-        {
-            var fields = topLevelXaml.GetType().GetFields();
-            foreach (var fi in fields)
-            {
-                var value = fi.GetValue(topLevelXaml);
-                if (value!= "Name")
-                    continue;
-                return fi.Name;
-            }
-            return null;
-        }*/
-
-
+        
         async void OnButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text))
@@ -168,53 +116,16 @@ namespace Grupp4
                     item.Humidity = weatherData.Main.Humidity;
                     item.Visibility = weatherData.Weather[0].Visibility;
 
-
-
                 }
                 listView.ItemsSource = Places;
             }
         }
 
-        /*async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            ListView btn = (ListView)sender;
-            Console.WriteLine("textsender: ", btn);
-            await Navigation.PushAsync(new WeatherappPage());
-
-
-        }
-
-        public void OnItemTapped(object sender, ItemTappedEventArgs e) { 
-            var myListView = (ListView)sender; 
-            var myItem = myListView.SelectedItem;
-            Console.WriteLine("sender: ", myListView);
-            Console.WriteLine("myItem: ", myItem);
-        }*/
-
-        //Onitemslected to searchpage
-        //async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    var btn = (ListView)sender;
-        //    var place = (Place)btn.SelectedItem;
-        //    Console.WriteLine(place.Name);
-
-        //    //if (btn.SelectedItem != null)
-        //    await Navigation.PushAsync(new SearchPage
-        //    {
-        //        BindingContext = place,
-        //    });
-
-
-        //}
-
-        // OnitemSelected to weatherapppage
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var btn = (ListView)sender;
             var place = (Place)btn.SelectedItem;
-            Console.WriteLine(place.Name);
 
-            //if (btn.SelectedItem != null)
             await Navigation.PushAsync(new WeatherappPage
             {
                 BindingContext = place,
