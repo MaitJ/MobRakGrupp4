@@ -40,7 +40,7 @@
                     SeparatorVisibility="None"
                     IsPullToRefreshEnabled="True"
                     ItemSelected="OnItemSelected"
-                    
+                    CachingStrategy="RecycleElement"
                     Refreshing="ListView_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
