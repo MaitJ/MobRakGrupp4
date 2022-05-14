@@ -52,6 +52,26 @@ namespace Grupp4
             WeatherDataForecast data = await _restService.GetWeatherForecastByLoc(location);
             return data;
         }
-        
+
+
+        public async Task<WeatherData> GetLocationData(double lon, double lat)
+        {
+            Location location = new Location();
+            location.Latitude = lat;
+            location.Longitude = lon;
+
+            WeatherData data = await _restService.GetWeatherDataByLoc(location);
+            return data;
+        }
+
+        public async Task<WeatherDataForecast> GetLocationForecast(double lon, double lat)
+        {
+            Location location = new Location();
+            location.Latitude = lat;
+            location.Longitude = lon;
+            WeatherDataForecast data = await _restService.GetWeatherForecastByLoc(location);
+            return data;
+        }
+
     }
 }

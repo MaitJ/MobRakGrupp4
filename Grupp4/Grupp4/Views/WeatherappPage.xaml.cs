@@ -110,7 +110,7 @@ namespace Grupp4
         {
             _restService = new RestService();
             _weatherService = new WeatherService(_restService);
-            BindingContext = this;
+            //BindingContext = this; 
             InitializeComponent();
         }
         private string GetCurrentTime()
@@ -187,12 +187,92 @@ namespace Grupp4
                 Humidity = weatherData.Main.Humidity;
                 Visibility = weatherData.Visibility;
             }
+            BindingContext = this;
+        }
 
+
+        protected async Task FetchWeatherByLonLat(double lon, double lat)
+        {
+            WeatherDataForecast forecastData = await _weatherService.GetLocationForecast(lon,lat);
+            refreshForecasts(forecastData);
+            weatherData = await _weatherService.GetLocationData(lon, lat);
+
+            if (weatherData.Title != null)
+            {
+                LocationName = weatherData.Title;
+                CurrentTemperature = weatherData.Main.Temperature;
+                CurrentDay = GetCurrentTime();
+                Weather = weatherData.Weather[0].Visibility;
+                WindSpeed = weatherData.Wind.Speed;
+                Humidity = weatherData.Main.Humidity;
+                Visibility = weatherData.Visibility;
+            }
+            BindingContext = this;
         }
 
         protected override async void OnAppearing()
         {
-            await FetchWeather();
+            Console.WriteLine("BindingContext onappear alguses");
+            Console.WriteLine(BindingContext);
+           
+            if (BindingContext != null)
+            {
+                string test = BindingContext.ToString();
+                Console.WriteLine(test);
+                if (test== "Grupp4.Place") 
+                {
+              
+                    var Place = (Place)BindingContext;
+                    Console.WriteLine(Place.Name);
+
+
+                    if (Place != null)
+                    {
+
+
+
+                        string requestUri = Constants.WeatherEndpoint;
+                        requestUri += $"?q={Place.Name}";
+                        requestUri += "&units=metric";
+                        requestUri += $"&APPID={Constants.WeatherAPIKey}";
+                        WeatherData weatherData = await _restService.GetWeatherData(requestUri);
+                        //BindingContext = weatherData;
+
+                        double longitude = weatherData.Coord.Lon;
+                        double latitude = weatherData.Coord.Lat;
+                        Console.WriteLine(longitude);
+                        Console.WriteLine(latitude);
+
+                        if (longitude != 0 && latitude != 0)
+                        {
+                            await FetchWeatherByLonLat(longitude, latitude);
+                        }
+                        else
+                        {
+                            await FetchWeather();
+                        }
+                    }
+
+
+
+
+
+
+                }
+                else
+                {
+                    await FetchWeather();
+                }
+
+            }
+            else
+            {
+                await FetchWeather();
+            }
+
+
+
+           
             /*
             //WeatherDataForecast forecastData = await _weatherService.GetCurrentLocationForecast();
             //refreshForecasts(forecastData);

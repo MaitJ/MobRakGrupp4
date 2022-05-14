@@ -20,7 +20,38 @@ namespace Grupp4
             InitializeComponent();
             _restService = new RestService();
         }
+        protected override async void OnAppearing()
+        {
 
+            base.OnAppearing();
+            
+
+            if (BindingContext != null)
+            {
+                var Place = (Place)BindingContext;
+                Console.WriteLine(Place.Name);
+
+
+                if (Place != null)
+                {
+
+
+
+                    string requestUri = Constants.WeatherEndpoint;
+                    requestUri += $"?q={Place.Name}";
+                    requestUri += "&units=metric";
+                    requestUri += $"&APPID={Constants.WeatherAPIKey}";
+                    WeatherData weatherData = await _restService.GetWeatherData(requestUri);
+                    BindingContext = weatherData;
+
+
+
+
+
+
+                }
+            }
+        }
         async void OnTextChanged(object sender, EventArgs e)
         {
             if (searchTimer != null)

@@ -5,6 +5,8 @@
              x:Class="Grupp4.SearchPage">
 
     <StackLayout>
+
+
         <StackLayout.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="White"
