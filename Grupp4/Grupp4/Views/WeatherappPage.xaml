@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Weather"
              
              x:Class="Grupp4.WeatherappPage"
-             BackgroundColor="{AppThemeBinding 
-                        Dark={StaticResource WindowBackgroundColorDark}, 
-                        Light={StaticResource WindowBackgroundColor}}">
+    Style="{AppThemeBinding 
+                        Dark={StaticResource ContentPageDark}, 
+                        Light={StaticResource ContentPageLight}}">
 
     <StackLayout>
 
@@ -69,7 +69,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="wind" WidthRequest="30" HeightRequest="30"></Image>
+            <Image Source="wind" WidthRequest="30" HeightRequest="30" ></Image>
 
             <Label Text="Wind Speed" 
                    Grid.Row="1" 
