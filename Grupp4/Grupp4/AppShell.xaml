@@ -16,11 +16,6 @@
         </LinearGradientBrush>
 
     </Shell.FlyoutBackground>
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
     <FlyoutItem Title="Weatherapp">
         <FlyoutItem.Icon>
             <FontImageSource
@@ -50,7 +45,7 @@
                 Color="Black"
                  />
         </FlyoutItem.Icon>
-        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
+        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}"/>
     </FlyoutItem>
 
     <FlyoutItem Title="Settings">
@@ -63,34 +58,6 @@
         </FlyoutItem.Icon>
         <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
-
-
-
-
-    <!--
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid ColumnDefinitions="0.2*,0.8*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="15"
-                       HeightRequest="16"
-                       />
-                <Label Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontAttributes="Bold"
-                       FontSize="16"
-                       Margin="15"
-                       
-                       Padding="0,0,0,0"
-                       TextColor="Black"
-                       VerticalTextAlignment="Center"
-                       HorizontalTextAlignment="Start"
-                       />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-    -->
-
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>

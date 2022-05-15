@@ -1,16 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Grupp4.FavoritesPage"
-             Title="Favorites">
-
+             Title="Favorites"
+             BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="+"  Clicked="OnButtonClicked">
            
         </ToolbarItem>
         
     </ContentPage.ToolbarItems>-->
-    <StackLayout BackgroundColor="#00b4d8">
+    <StackLayout >
+        <StackLayout.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#00b4d8"
+                                      Offset="0.1"/>
+                <GradientStop Color="#0077b6"
+                                      Offset="1.0"/>
+            </LinearGradientBrush>
+        </StackLayout.Background>
         <Entry x:Name="nameEntry"
                Placeholder="Search city...." Margin="6" />
         <Button Text="Add to favourites"
@@ -29,12 +40,23 @@
                     SeparatorVisibility="None"
                     IsPullToRefreshEnabled="True"
                     ItemSelected="OnItemSelected"
-                    ItemTapped="OnItemTapped"
+                    CachingStrategy="RecycleElement"
                     Refreshing="ListView_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
+                        <!--<ViewCell.ContextActions >
+                            
+                            <MenuItem Text="Delete" Clicked="OnDeleteClicked" IsDestructive="True">
+                            </MenuItem>
+                        </ViewCell.ContextActions>-->
                         <ViewCell.View>
+                            <SwipeView BackgroundColor="Transparent">
+                                <SwipeView.RightItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="red"
+                                               Invoked="SwipeItem_Invoked"/>
+                                </SwipeView.RightItems>
                             <Frame HasShadow="True" Margin="8" BackgroundColor="#caf0f8" CornerRadius="4">
                                 <StackLayout>
                                     <Grid>
@@ -81,7 +103,7 @@
                                                TextColor="#0077b6" 
                                                />
 
-                                        <Label Text="{Binding Wind}" 
+                                            <Label Text="{Binding Wind, StringFormat='{0:F1} m/s'}" 
                                                Grid.Row="2" 
                                                HorizontalTextAlignment="Center" 
                                                TextColor="#0077b6" 
@@ -92,7 +114,7 @@
                                                HorizontalTextAlignment="Center" 
                                                TextColor="#0077b6" />
 
-                                        <Label Text="{Binding Humidity}" 
+                                            <Label Text="{Binding Humidity, StringFormat='{0}%'}" 
                                                Grid.Row="2" Grid.Column="1" 
                                                HorizontalTextAlignment="Center"  
                                                TextColor="#0077b6" 
@@ -127,26 +149,26 @@
 
 
 
-                                  <!--  <Button Text="delete"  
+                                   <!--<Button Text="delete"  
                                    HorizontalOptions="End"
-                                   Clicked="OnDeleteClicked" />-->
+                                   Clicked="OnDeleteClicked" />
 
                                     <Label Text="delete"
                                           HorizontalOptions="End"
                                           Margin="0,0,-10,-10"
                                           TextColor="Black"
-                                          FontSize="Micro"
+                                          FontSize="Small"
                                           >
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnDeleteClicked"/>
                                         </Label.GestureRecognizers>
-                                    </Label>
+                                    </Label>-->
 
 
 
                                 </StackLayout>
                             </Frame>
-
+                            </SwipeView>
                         </ViewCell.View>
                     </ViewCell>
                 </DataTemplate>
