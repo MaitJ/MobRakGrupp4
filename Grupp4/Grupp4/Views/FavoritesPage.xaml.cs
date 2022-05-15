@@ -134,8 +134,6 @@ namespace Grupp4
             {
                 BindingContext = place,
             });
-
-
         }
 
         async void SwipeItem_Invoked(object sender, EventArgs e)
@@ -174,11 +172,13 @@ namespace Grupp4
                         try
                         {
                             var dataEmpty = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
-                            Console.WriteLine(dataEmpty);
+                            Console.WriteLine(e.NewTextValue);
                             if (string.IsNullOrWhiteSpace(e.NewTextValue))
                                 searchResults.IsVisible = false;
                             else if (dataEmpty.Max().Length == 0)
                                 searchResults.IsVisible = false;
+                            else if (e.NewTextValue == searchList[0])
+                                searchResults.IsVisible = false; 
                             else
                                 searchResults.ItemsSource = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
                         }
