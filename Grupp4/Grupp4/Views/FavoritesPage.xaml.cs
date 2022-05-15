@@ -227,6 +227,7 @@ namespace Grupp4
             string requestUri = endpoint;
             requestUri += $"?limit=5";
             requestUri += $"&namePrefix={nameEntry.Text}";
+            requestUri += $"&minPopulation=5000";
             requestUri += $"&rapidapi-key={Constants.CitiesAPIKey}";
             return requestUri;
         }

@@ -28,7 +28,7 @@
                     <ViewCell>
                         <Frame>
                             <StackLayout BackgroundColor="White">
-                                <Label Text="{Binding .}" FontSize="16" TextColor="White"/>
+                                <Label Text="{Binding .}" FontSize="16" TextColor="Black"/>
                             </StackLayout>
                         </Frame>
                     </ViewCell>

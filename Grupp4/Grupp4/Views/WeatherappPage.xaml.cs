@@ -124,6 +124,9 @@ namespace Grupp4
             {
                 return;
             }
+
+            _forecasts.Clear();
+
             for (int i = 1; i < 8; ++i)
             {
                 Forecast forecast = new Forecast();
