@@ -5,23 +5,10 @@
        xmlns:local="clr-namespace:Grupp4" x:DataType="local:AppShell"
        Title="FlyoutTest"
        x:Class="Grupp4.AppShell"
-       BackgroundColor="ForestGreen"
+       BackgroundColor="{AppThemeBinding 
+            Dark={StaticResource DarkMenuColor}, 
+            Light={StaticResource LightMenuColor}}"
        >
-    <Shell.FlyoutBackground>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="White"
-                                      Offset="0.1"/>
-            <GradientStop Color="LightBlue"
-                                      Offset="1.0"/>
-
-        </LinearGradientBrush>
-
-    </Shell.FlyoutBackground>
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
     <FlyoutItem Title="Weatherapp">
         <FlyoutItem.Icon>
             <FontImageSource
@@ -43,16 +30,6 @@
         </FlyoutItem.Icon>
         <ShellContent Route="FavoritesPage" ContentTemplate="{DataTemplate local:FavoritesPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Search">
-        <FlyoutItem.Icon>
-            <FontImageSource
-                Glyph="{x:Static fontAwesome:FontAwesomeIcons.Search}"
-                FontFamily="FAS"
-                Color="ForestGreen"
-                 />
-        </FlyoutItem.Icon>
-        <ShellContent Route="SearchPage" ContentTemplate="{DataTemplate local:SearchPage}" />
-    </FlyoutItem>
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.Icon>
@@ -65,45 +42,14 @@
         <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
 
-
-
-
-    <!--
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid ColumnDefinitions="0.2*,0.8*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="15"
-                       HeightRequest="16"
-                       />
-                <Label Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontAttributes="Bold"
-                       FontSize="16"
-                       Margin="15"
-                       
-                       Padding="0,0,0,0"
-                       TextColor="Black"
-                       VerticalTextAlignment="Center"
-                       HorizontalTextAlignment="Start"
-                       />
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-    -->
-
-
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="Black">
-                
+            <Grid        BackgroundColor="{AppThemeBinding 
+            Dark={StaticResource MenuHeaderColorDark}, 
+            Light={StaticResource MenuHeaderColorLight}}">
+
                 <Label Text="Menu"
-                       FontSize="30"
-                       TextColor="#FFFFFF"
-                       
-                       Padding="5,5,5,5"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
+                       Style="{DynamicResource LabelMenuHeader}"/>
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>

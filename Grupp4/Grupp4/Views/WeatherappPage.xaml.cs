@@ -18,6 +18,7 @@ namespace Grupp4
         public string Month { get; set; }
         public string DayMonth { get; set; }
         public double Temperature { get; set; }
+        public string Icon { get; set; }
     }
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeatherappPage : ContentPage
@@ -107,11 +108,9 @@ namespace Grupp4
 
         public WeatherappPage()
         {
-            InitializeComponent();
             _restService = new RestService();
             _weatherService = new WeatherService(_restService);
-            BindingContext = this;
-            
+            InitializeComponent();
         }
         private string GetCurrentTime()
         {
@@ -119,36 +118,15 @@ namespace Grupp4
             return now.DayOfWeek.ToString();
         }
 
-        /*
-        private void createForecastDataTemplate()
-        {
-            var dataTemplate = new DataTemplate(() =>
-            {
-                var cell = new ViewCell();
-                var grid = new Grid();
-
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-
-                for (int i = 0; i < 3; ++i)
-                {
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                }
-
-                for (int i = 0; i < _forecasts.Count; ++i)
-                {
-                    Frame frame = new Frame();
-                    grid.Children.Add(new Frame() {
-                        
-                    })
-                }
-
-
-            });
-        }
-        */
-
         private void refreshForecasts(WeatherDataForecast forecastData)
         {
+            if (forecastData.daily == null)
+            {
+                return;
+            }
+
+            _forecasts.Clear();
+
             for (int i = 1; i < 8; ++i)
             {
                 Forecast forecast = new Forecast();
@@ -159,25 +137,97 @@ namespace Grupp4
                 forecast.DayStr = date.DayOfWeek.ToString();
                 forecast.Month = date.Month.ToString();
                 forecast.Temperature = forecastData.daily[i].Temperature.Day;
+                forecast.Icon = forecastData.daily[i].Weather[0].Icon;
                 _forecasts.Add(forecast);
+                ForecastView.ItemsSource = Forecasts;
             }
-            ForecastView.ItemsSource = Forecasts;
 
         }
 
-        protected override async void OnAppearing()
+        protected async Task FetchWeather()
         {
             WeatherDataForecast forecastData = await _weatherService.GetCurrentLocationForecast();
             refreshForecasts(forecastData);
             weatherData = await _weatherService.GetCurrentLocationData();
 
-            LocationName = weatherData.Title;
-            CurrentTemperature = weatherData.Main.Temperature;
-            CurrentDay = GetCurrentTime();
-            Weather = weatherData.Weather[0].Visibility;
-            WindSpeed = weatherData.Wind.Speed;
-            Humidity = weatherData.Main.Humidity;
-            Visibility = weatherData.Visibility;
+            if (weatherData.Title != null)
+            {
+                LocationName = weatherData.Title;
+                CurrentTemperature = weatherData.Main.Temperature;
+                CurrentDay = GetCurrentTime();
+                Weather = weatherData.Weather[0].Visibility;
+                WindSpeed = weatherData.Wind.Speed;
+                Humidity = weatherData.Main.Humidity;
+                Visibility = weatherData.Visibility;
+            }
+            BindingContext = this;
+        }
+
+
+        protected async Task FetchWeatherByLonLat(double lon, double lat)
+        {
+            WeatherDataForecast forecastData = await _weatherService.GetLocationForecast(lon,lat);
+            refreshForecasts(forecastData);
+            weatherData = await _weatherService.GetLocationData(lon, lat);
+
+            if (weatherData.Title != null)
+            {
+                LocationName = weatherData.Title;
+                CurrentTemperature = weatherData.Main.Temperature;
+                CurrentDay = GetCurrentTime();
+                Weather = weatherData.Weather[0].Visibility;
+                WindSpeed = weatherData.Wind.Speed;
+                Humidity = weatherData.Main.Humidity;
+                Visibility = weatherData.Visibility;
+            }
+            BindingContext = this;
+        }
+
+        protected override async void OnAppearing()
+        {
+           
+            if (BindingContext != null)
+            {
+                string test = BindingContext.ToString();
+             
+                if (test== "Grupp4.Place") 
+                {
+              
+                    var Place = (Place)BindingContext;
+
+                    if (Place != null)
+                    {
+
+                        string requestUri = Constants.WeatherEndpoint;
+                        requestUri += $"?q={Place.Name}";
+                        requestUri += "&units=metric";
+                        requestUri += $"&APPID={Constants.WeatherAPIKey}";
+                        WeatherData weatherData = await _restService.GetWeatherData(requestUri);
+
+                        double longitude = weatherData.Coord.Lon;
+                        double latitude = weatherData.Coord.Lat;
+
+                        if (longitude != 0 && latitude != 0)
+                        {
+                            await FetchWeatherByLonLat(longitude, latitude);
+                        }
+                        else
+                        {
+                            await FetchWeather();
+                        }
+                    }
+
+                }
+                else
+                {
+                    await FetchWeather();
+                }
+
+            }
+            else
+            {
+                await FetchWeather();
+            }
 
             base.OnAppearing();
         }
@@ -190,23 +240,6 @@ namespace Grupp4
                 return source;
             }
         }
-
-        //async void ongetweatherbuttonclicked(object sender, eventargs e)
-        //{
-        //    if (!string.isnullorwhitespace(_cityentry.text))
-        //    {
-        //        weatherdata weatherdata = await _restservice.getweatherdata(generaterequesturi(constants.weatherendpoint));
-        //        bindingcontext = weatherdata;
-        //    }
-        //}
-
-        //string generaterequesturi(string endpoint)
-        //{
-        //    string requesturi = endpoint;
-        //    requesturi += $"?q={_cityentry.text}";
-        //    requesturi += "&units=metric";
-        //    requesturi += $"&appid={constants.weatherapikey}";
-        //    return requesturi;
-        //}
+        
     }
 }

@@ -1,20 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Grupp4.FavoritesPage"
-             Title="Favorites">
-
-    <ContentPage.ToolbarItems>
+             Title="Favorites"
+             Style="{AppThemeBinding 
+                Dark={StaticResource ContentPageDark}, 
+                Light={StaticResource ContentPageLight}}">
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="+"  Clicked="OnButtonClicked">
            
         </ToolbarItem>
         
-    </ContentPage.ToolbarItems>
-    <StackLayout BackgroundColor="#00b4d8">
+    </ContentPage.ToolbarItems>-->
+    <StackLayout >
         <Entry x:Name="nameEntry"
-               Placeholder="Enter name" Margin="6" />
-        <Button Text="Add to Database"
-                Clicked="OnButtonClicked" Margin="6" />
+               Placeholder="Search city...." TextColor="White" Margin="6" TextChanged="OnTextChanged"/>
+        <ListView x:Name="searchResults" 
+                  IsVisible="False" 
+                  CachingStrategy="RecycleElement" 
+                  BackgroundColor="White" 
+                  ItemTapped="OnSearchTapped" 
+                  AbsoluteLayout.LayoutBounds="20,110,269,160" 
+                  AbsoluteLayout.LayoutFlags="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
+                            <StackLayout BackgroundColor="White">
+                                <Label Text="{Binding .}" FontSize="16" TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add to favourites"
+                TextColor="White"
+                Clicked="OnButtonClicked"
+                Style="{DynamicResource Button-Settings}"/>
       
         <ListView x:Name="listView"
                     HasUnevenRows="True"                       
@@ -22,46 +46,44 @@
                     SeparatorVisibility="None"
                     IsPullToRefreshEnabled="True"
                     ItemSelected="OnItemSelected"
+                    CachingStrategy="RecycleElement"
                     Refreshing="ListView_Refreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
+                        <!--<ViewCell.ContextActions >
+                            
+                            <MenuItem Text="Delete" Clicked="OnDeleteClicked" IsDestructive="True">
+                            </MenuItem>
+                        </ViewCell.ContextActions>-->
                         <ViewCell.View>
-                            <Frame HasShadow="True" Margin="8" BackgroundColor="#caf0f8" CornerRadius="4">
+                            <SwipeView BackgroundColor="Transparent">
+                                <SwipeView.RightItems>
+                                    <SwipeItem Text="Delete" BackgroundColor="red"
+                                               Invoked="SwipeItem_Invoked"/>
+                                </SwipeView.RightItems>
+                                <Frame  Style="{DynamicResource Card2}"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColorMain}, Light={StaticResource LightRadioButtonColorMain}}">
                                 <StackLayout>
                                     <Grid>
                                     <Label x:Name="idlabel" 
                                            Text="{Binding Name}" 
-                                           FontSize="Large" 
-                                           FontAttributes="Bold"
-                                           TextColor="Black">
+                                           Style="{DynamicResource LabelLarge}">
                                         
                                     </Label>
-                                    <Label Text= "{Binding Temperature, StringFormat='{0:F2}°'}"
-                   
-                                        HorizontalOptions="End"  FontSize="27" FontAttributes="Bold"
-                                        TextColor="Black" Padding="0,0,0,0" 
-                                        Margin="0,0,0,0"/>
+                                            <Label Text= "{Binding Temperature, StringFormat='{0:F2}°'}"
+                                           Style="{DynamicResource LabelCelsius}"/>
 
-                                    <Label Text="Celsius    "
+                                            <Label Text="Celsius    "
                                            Grid.Row="1"
-                                           FontSize="Micro"
-                                           TextColor="Black" 
-                                           HorizontalTextAlignment="End"
-                                           Margin="0,-5,-5,10"
+                                           Style="{DynamicResource LabelCelsiusText}"
                                         />
-                                    </Grid>    
+                                    </Grid>
                                     <BoxView Color="#0077b6"
                                              HeightRequest="2"
                                              HorizontalOptions="Fill" 
                                              Margin="0,-15,0,0"/>
-
-
-
-
-                                    
-
-
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
@@ -76,76 +98,54 @@
 
                                         <Label Text="Wind Speed" 
                                                Grid.Row="1" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
+                                               Style="{DynamicResource LabelWindSpeed}"
                                                />
 
-                                        <Label Text="{Binding Wind}" 
+                                            <Label Text="{Binding Wind, StringFormat='{0:F1} m/s'}" 
                                                Grid.Row="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>
+                                                   Style="{DynamicResource LabelWindSpeed2}"/>
 
                                         <Label Text="Humidity" 
                                                Grid.Row="1" Grid.Column="1" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" />
+                                               Style="{DynamicResource LabelWindSpeed}"/>
 
-                                        <Label Text="{Binding Humidity}" 
+                                            <Label Text="{Binding Humidity, StringFormat='{0}%'}" 
                                                Grid.Row="2" Grid.Column="1" 
-                                               HorizontalTextAlignment="Center"  
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>
+                                                   Style="{DynamicResource LabelWindSpeed2}"/>
 
                                         <Label Text="Visibility" 
                                                Grid.Row="1" 
                                                Grid.Column="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" />
+                                               Style="{DynamicResource LabelWindSpeed}"/>
 
                                         <Label Text="{Binding Visibility}" 
                                                Grid.Row="2" 
                                                Grid.Column="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>                           
+                                               Style="{DynamicResource LabelWindSpeed2}"/>                           
                                     </Grid>
 
 
 
-
-
-
-
-
-
-
-
-
-                                    
-
-
-
-                                  <!--  <Button Text="delete"  
+                                   <!--<Button Text="delete"  
                                    HorizontalOptions="End"
-                                   Clicked="OnDeleteClicked" />-->
+                                   Clicked="OnDeleteClicked" />
 
                                     <Label Text="delete"
                                           HorizontalOptions="End"
                                           Margin="0,0,-10,-10"
                                           TextColor="Black"
-                                          FontSize="Micro"
+                                          FontSize="Small"
                                           >
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OnDeleteClicked"/>
                                         </Label.GestureRecognizers>
-                                    </Label>
+                                    </Label>-->
 
 
 
                                 </StackLayout>
                             </Frame>
-
+                            </SwipeView>
                         </ViewCell.View>
                     </ViewCell>
                 </DataTemplate>

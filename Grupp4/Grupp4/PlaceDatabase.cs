@@ -12,7 +12,7 @@ namespace Grupp4
         public PlaceDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Place>();
+            _database.CreateTableAsync<Place>().Wait();
         }
         public Task<List<Place>> GetPlacesAsync()
         {

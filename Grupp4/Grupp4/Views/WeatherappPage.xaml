@@ -3,21 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="Weather"
              
              x:Class="Grupp4.WeatherappPage"
-             BackgroundColor="{AppThemeBinding 
-                        Dark={StaticResource WindowBackgroundColorDark}, 
-                        Light={StaticResource WindowBackgroundColor}}">
+             Style="{AppThemeBinding 
+                        Dark={StaticResource ContentPageDark}, 
+                        Light={StaticResource ContentPageLight}}">
 
     <StackLayout>
-        <StackLayout.Background>
-            <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="LightBlue"
-                                      Offset="0.1"/>
-                <GradientStop Color="Gray"
-                                      Offset="1.0"/>
-            </LinearGradientBrush>
-        </StackLayout.Background>
 
-        <Grid Margin="20, 40, 20, 20">
+        <Grid Margin="20, 20, 20, 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -139,6 +131,8 @@
 
                         <Frame Style="{DynamicResource Card}"
                                Grid.Column="{Binding Id}"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColorMain},
+                                                      Light={StaticResource LightRadioButtonColorMain}}"
                                >
 
                             <StackLayout HeightRequest="100">
@@ -154,9 +148,9 @@
                                            HeightRequest="2"
                                            HorizontalOptions="Fill" />
 
-                                <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
+                                <Image Source="{Binding Icon, StringFormat='https://openweathermap.org/img/wn/{0}@2x.png'}" WidthRequest="60" HeightRequest="60"/>
 
-                                <Label Text="{Binding Temperature, StringFormat='{0:F0}C'}"
+                                <Label Text="{Binding Temperature, StringFormat='{0:F0} °C'}"
                                        Style="{DynamicResource LabelMediumCelsius}"
                                        />
                             </StackLayout>
@@ -165,94 +159,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-            <!--
-            
-            <Frame BackgroundColor="#caf0f8"
-                   Padding="5"
-                   HorizontalOptions="Center"
-                   WidthRequest="100"
-                   HeightRequest="160"
-                   CornerRadius="4">
-
-                <StackLayout HeightRequest="140">
-                    <Label Text="Monday"
-                       Style="{DynamicResource LabelMedium}"
-                                             />
-
-                    <Label Text="29 Apr"
-                       Style="{DynamicResource LabelSmall}"
-                                             />
-
-                    <BoxView Color="#0077b6"
-                       HeightRequest="2"
-                       HorizontalOptions="Fill" />
-
-                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
-
-                    <Label Text="19°C"
-                           Style="{DynamicResource LabelMediumCelsius}"
-                           />
-
-
-                </StackLayout>
-                
-            </Frame>
-
-            <Frame Style="{DynamicResource Card}">
-
-                <StackLayout HeightRequest="140">
-                    <Label Text="Tuesday"
-                        Style="{DynamicResource LabelMedium}"
-                                             />
-
-                    <Label Text="30 Apr"
-                        Style="{DynamicResource LabelSmall}"
-                                             />
-
-                    <BoxView Color="#0077b6"
-                       HeightRequest="2"
-                       HorizontalOptions="Fill" />
-
-                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
-
-                    <Label Text="24°C"
-                           Style="{DynamicResource LabelMediumCelsius}"
-                           />
-
-
-                </StackLayout>
-
-            </Frame>
-
-            <Frame Style="{DynamicResource Card}" Grid.Column="2">
-
-                <StackLayout HeightRequest="140">
-                    <Label Text="Wednesday"
-                           Style="{DynamicResource LabelMedium}"
-                                             />
-
-                    <Label Text="31 Apr"
-                           Style="{DynamicResource LabelSmall}"
-                                             />
-
-                    <BoxView Color="#0077b6"
-                       HeightRequest="2"
-                       HorizontalOptions="Fill" />
-
-                    <Image Source="https://openweathermap.org/img/wn/10d@2x.png" WidthRequest="60" HeightRequest="60"/>
-
-                    <Label Text="22°C"
-                           Style="{DynamicResource LabelMediumCelsius}"
-                           />
-
-
-                </StackLayout>
-
-            </Frame>
-            -->
-
-
-    
-
     </StackLayout>
 </ContentPage>
