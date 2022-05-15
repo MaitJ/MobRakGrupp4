@@ -4,9 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Grupp4.FavoritesPage"
              Title="Favorites"
-             BackgroundColor="{AppThemeBinding 
-                        Dark={StaticResource WindowBackgroundColorDark}, 
-                        Light={StaticResource WindowBackgroundColor}}">
+             Style="{AppThemeBinding 
+                Dark={StaticResource ContentPageDark}, 
+                Light={StaticResource ContentPageLight}}">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="+"  Clicked="OnButtonClicked">
            
@@ -14,16 +14,8 @@
         
     </ContentPage.ToolbarItems>-->
     <StackLayout >
-        <StackLayout.Background>
-            <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="#00b4d8"
-                                      Offset="0.1"/>
-                <GradientStop Color="#0077b6"
-                                      Offset="1.0"/>
-            </LinearGradientBrush>
-        </StackLayout.Background>
         <Entry x:Name="nameEntry"
-               Placeholder="Search city...." Margin="6" TextChanged="OnTextChanged"/>
+               Placeholder="Search city...." TextColor="White" Margin="6" TextChanged="OnTextChanged"/>
         <ListView x:Name="searchResults" 
                   IsVisible="False" 
                   CachingStrategy="RecycleElement" 
@@ -36,7 +28,7 @@
                     <ViewCell>
                         <Frame>
                             <StackLayout BackgroundColor="White">
-                                <Label Text="{Binding .}" FontSize="16" TextColor="#FF464859"/>
+                                <Label Text="{Binding .}" FontSize="16" TextColor="White"/>
                             </StackLayout>
                         </Frame>
                     </ViewCell>
@@ -44,14 +36,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Add to favourites"
+                TextColor="White"
                 Clicked="OnButtonClicked"
-                BackgroundColor="#0077b6"
-                BorderColor="#caf0f8"
-                HorizontalOptions="Center"
-                WidthRequest="200"
-                BorderWidth="2"
-                CornerRadius="14"
-                Margin="6" />
+                Style="{DynamicResource Button-Settings}"/>
       
         <ListView x:Name="listView"
                     HasUnevenRows="True"                       
@@ -76,28 +63,21 @@
                                     <SwipeItem Text="Delete" BackgroundColor="red"
                                                Invoked="SwipeItem_Invoked"/>
                                 </SwipeView.RightItems>
-                            <Frame HasShadow="True" Margin="8" BackgroundColor="#caf0f8" CornerRadius="4">
+                                <Frame  Style="{DynamicResource Card2}"
+                                        BackgroundColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColorMain}, Light={StaticResource LightRadioButtonColorMain}}">
                                 <StackLayout>
                                     <Grid>
                                     <Label x:Name="idlabel" 
                                            Text="{Binding Name}" 
-                                           FontSize="Large" 
-                                           FontAttributes="Bold"
-                                           TextColor="Black">
+                                           Style="{DynamicResource LabelLarge}">
                                         
                                     </Label>
-                                    <Label Text= "{Binding Temperature, StringFormat='{0:F2}°'}"
-                   
-                                        HorizontalOptions="End"  FontSize="27" FontAttributes="Bold"
-                                        TextColor="Black" Padding="0,0,0,0" 
-                                        Margin="0,0,0,0"/>
+                                            <Label Text= "{Binding Temperature, StringFormat='{0:F2}°'}"
+                                           Style="{DynamicResource LabelCelsius}"/>
 
-                                    <Label Text="Celsius    "
+                                            <Label Text="Celsius    "
                                            Grid.Row="1"
-                                           FontSize="Micro"
-                                           TextColor="Black" 
-                                           HorizontalTextAlignment="End"
-                                           Margin="0,-5,-5,10"
+                                           Style="{DynamicResource LabelCelsiusText}"
                                         />
                                     </Grid>
                                     <BoxView Color="#0077b6"
@@ -118,39 +98,30 @@
 
                                         <Label Text="Wind Speed" 
                                                Grid.Row="1" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
+                                               Style="{DynamicResource LabelWindSpeed}"
                                                />
 
                                             <Label Text="{Binding Wind, StringFormat='{0:F1} m/s'}" 
                                                Grid.Row="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>
+                                                   Style="{DynamicResource LabelWindSpeed2}"/>
 
                                         <Label Text="Humidity" 
                                                Grid.Row="1" Grid.Column="1" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" />
+                                               Style="{DynamicResource LabelWindSpeed}"/>
 
                                             <Label Text="{Binding Humidity, StringFormat='{0}%'}" 
                                                Grid.Row="2" Grid.Column="1" 
-                                               HorizontalTextAlignment="Center"  
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>
+                                                   Style="{DynamicResource LabelWindSpeed2}"/>
 
                                         <Label Text="Visibility" 
                                                Grid.Row="1" 
                                                Grid.Column="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" />
+                                               Style="{DynamicResource LabelWindSpeed}"/>
 
                                         <Label Text="{Binding Visibility}" 
                                                Grid.Row="2" 
                                                Grid.Column="2" 
-                                               HorizontalTextAlignment="Center" 
-                                               TextColor="#0077b6" 
-                                               FontSize="Medium"/>                           
+                                               Style="{DynamicResource LabelWindSpeed2}"/>                           
                                     </Grid>
 
 
