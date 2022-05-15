@@ -35,7 +35,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame>
-                            <Label Text="{Binding .}" FontSize="16" TextColor="#FF464859"/>
+                            <StackLayout BackgroundColor="White">
+                                <Label Text="{Binding .}" FontSize="16" TextColor="#FF464859"/>
+                            </StackLayout>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
@@ -150,19 +152,6 @@
                                                TextColor="#0077b6" 
                                                FontSize="Medium"/>                           
                                     </Grid>
-
-
-
-
-
-
-
-
-
-
-
-
-                                    
 
 
 

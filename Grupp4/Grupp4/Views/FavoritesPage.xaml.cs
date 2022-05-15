@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Timers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
@@ -15,6 +16,8 @@ namespace Grupp4
     public partial class FavoritesPage : ContentPage
     {
         RestService _restService;
+        Timer searchTimer;
+        Task searchTask;
         public FavoritesPage()
         {
             InitializeComponent();
@@ -148,37 +151,51 @@ namespace Grupp4
 
         async void OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            ObservableCollection<string> searchList = new ObservableCollection<string>();
-            await CreateSearchlist(searchList);
-
-            for (int i = 0; i < searchList.Count; i++)
+            if (searchTask == null || searchTask.IsCompleted) 
             {
-                Console.WriteLine(searchList[i]);
-            };
+                searchTask = Task.Run(async () =>
+                {
+                    await Task.Delay(1000);
+                    
+                    ObservableCollection<string> searchList = new ObservableCollection<string>();
+                    await GetSearchAPICallback(searchList);
 
-            searchResults.IsVisible = true;
-            searchResults.BeginRefresh();
+                    for (int i = 0; i < searchList.Count; i++)
+                    {
+                        Console.WriteLine(searchList[i]);
+                    };
 
-            try
-            {
-                var dataEmpty = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        searchResults.IsVisible = true;
+                        searchResults.BeginRefresh();
+                        BindingContext = searchList;
 
-                if (string.IsNullOrWhiteSpace(e.NewTextValue))
-                    searchResults.IsVisible = false;
-                else if (dataEmpty.Max().Length == 0)
-                    searchResults.IsVisible = false;
-                else
-                    searchResults.ItemsSource = searchList;
+                        try
+                        {
+                            var dataEmpty = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
+                            Console.WriteLine(dataEmpty);
+                            if (string.IsNullOrWhiteSpace(e.NewTextValue))
+                                searchResults.IsVisible = false;
+                            else if (dataEmpty.Max().Length == 0)
+                                searchResults.IsVisible = false;
+                            else
+                                searchResults.ItemsSource = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
+                        }
+                        catch (Exception ex)
+                        {
+                            searchResults.IsVisible = false;
+
+                        }
+                        searchResults.EndRefresh();
+                    });
+                });
             }
-            catch (Exception ex)
-            {
-                searchResults.IsVisible = false;
-
-            }
-            searchResults.EndRefresh();
+            
         }
 
-        private async Task CreateSearchlist(ObservableCollection<string> searchList)
+
+        private async Task GetSearchAPICallback(ObservableCollection<string> searchList)
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text))
             {
@@ -198,7 +215,7 @@ namespace Grupp4
         private void OnSearchTapped(Object sender, ItemTappedEventArgs e)
         {
 
-            string listsd = e.Item as string;
+            String listsd = e.Item as string;
             nameEntry.Text = listsd;
             searchResults.IsVisible = false;
 
