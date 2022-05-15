@@ -23,7 +23,24 @@
             </LinearGradientBrush>
         </StackLayout.Background>
         <Entry x:Name="nameEntry"
-               Placeholder="Search city...." Margin="6" />
+               Placeholder="Search city...." Margin="6" TextChanged="OnTextChanged"/>
+        <ListView x:Name="searchResults" 
+                  IsVisible="False" 
+                  CachingStrategy="RecycleElement" 
+                  BackgroundColor="White" 
+                  ItemTapped="OnSearchTapped" 
+                  AbsoluteLayout.LayoutBounds="20,110,269,160" 
+                  AbsoluteLayout.LayoutFlags="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
+                            <Label Text="{Binding .}" FontSize="16" TextColor="#FF464859"/>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Button Text="Add to favourites"
                 Clicked="OnButtonClicked"
                 BackgroundColor="#0077b6"

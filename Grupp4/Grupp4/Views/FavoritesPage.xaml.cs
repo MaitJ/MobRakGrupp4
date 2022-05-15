@@ -4,7 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -143,6 +144,74 @@ namespace Grupp4
             DisplayAlert("Notice", String.Format("{0} is deleted!", place.Name), "OK");
 
             RefreshList();
+        }
+
+        async void OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ObservableCollection<string> searchList = new ObservableCollection<string>();
+            await CreateSearchlist(searchList);
+
+            for (int i = 0; i < searchList.Count; i++)
+            {
+                Console.WriteLine(searchList[i]);
+            };
+
+            searchResults.IsVisible = true;
+            searchResults.BeginRefresh();
+
+            try
+            {
+                var dataEmpty = searchList.Where(i => i.ToLower().Contains(e.NewTextValue.ToLower()));
+
+                if (string.IsNullOrWhiteSpace(e.NewTextValue))
+                    searchResults.IsVisible = false;
+                else if (dataEmpty.Max().Length == 0)
+                    searchResults.IsVisible = false;
+                else
+                    searchResults.ItemsSource = searchList;
+            }
+            catch (Exception ex)
+            {
+                searchResults.IsVisible = false;
+
+            }
+            searchResults.EndRefresh();
+        }
+
+        private async Task CreateSearchlist(ObservableCollection<string> searchList)
+        {
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text))
+            {
+                string searchData = await _restService.GetSearchData(GenerateSearchRequestUri(Constants.CitiesEndPoint));
+                if (!string.IsNullOrWhiteSpace(searchData))
+                {
+                    var searchItem = JsonConvert.DeserializeObject<SearchData>(searchData);
+
+                    for (int i = 0; i < searchItem.data.Count; i++)
+                    {
+                        searchList.Add(searchItem.data[i].name);
+                    };
+                }
+            }
+        }
+
+        private void OnSearchTapped(Object sender, ItemTappedEventArgs e)
+        {
+
+            string listsd = e.Item as string;
+            nameEntry.Text = listsd;
+            searchResults.IsVisible = false;
+
+            ((ListView)sender).SelectedItem = null;
+        }
+
+        string GenerateSearchRequestUri(string endpoint)
+        {
+            string requestUri = endpoint;
+            requestUri += $"?limit=5";
+            requestUri += $"&namePrefix={nameEntry.Text}";
+            requestUri += $"&rapidapi-key={Constants.CitiesAPIKey}";
+            return requestUri;
         }
     }
 }
