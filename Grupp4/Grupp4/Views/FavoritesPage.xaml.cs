@@ -60,24 +60,68 @@ namespace Grupp4
             listView.EndRefresh();
         }
         
+        //async void OnButtonClicked(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(nameEntry.Text))
+        //    {
+        //        var Places = await App.PlaceDatabase.GetPlacesAsync();
+        //        var myItem = Places.Find(Place => Place.Name == nameEntry.Text);
+        //        if (myItem == null)
+        //        {
+        //            await App.PlaceDatabase.SavePlaceAsync(new Place
+        //            {
+        //                Name = nameEntry.Text
+        //            });
+
+
+        //            nameEntry.Text = string.Empty;
+
+
+        //            RefreshList();
+        //        }
+        //        else
+        //        {
+        //            DisplayAlert("Notice", String.Format("{0} already in Favorites!", nameEntry.Text), "OK");
+        //        }
+        //    }
+        //}
+
+
         async void OnButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(nameEntry.Text))
             {
+
                 var Places = await App.PlaceDatabase.GetPlacesAsync();
                 var myItem = Places.Find(Place => Place.Name == nameEntry.Text);
                 if (myItem == null)
                 {
-                    await App.PlaceDatabase.SavePlaceAsync(new Place
+                    string requestUri = Constants.WeatherEndpoint;
+                    requestUri += $"?q={nameEntry.Text}";
+                    requestUri += "&units=metric";
+                    requestUri += $"&APPID={Constants.WeatherAPIKey}";
+
+                    WeatherData weatherData = await _restService.GetWeatherData(requestUri);
+                    if (weatherData != null)
                     {
-                        Name = nameEntry.Text
-                    });
 
 
-                    nameEntry.Text = string.Empty;
+
+                        await App.PlaceDatabase.SavePlaceAsync(new Place
+                        {
+                            Name = nameEntry.Text
+                        });
 
 
-                    RefreshList();
+                        nameEntry.Text = string.Empty;
+
+
+                        RefreshList();
+                    }
+                    else
+                    {
+                        DisplayAlert("Notice", String.Format("{0} not available!", nameEntry.Text), "OK");
+                    }
                 }
                 else
                 {
@@ -86,7 +130,6 @@ namespace Grupp4
             }
         }
 
-       
 
         async void OnDeleteClicked(object sender, EventArgs e)
         {
